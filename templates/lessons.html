@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+<head> 
+   {% include './common/header.html' %}
+   <script src="{{url_for('static', filename='js/html/websiteImports.js') }}"></script>
+	<script>importCss();</script>
+	<script>importJs();</script>
+	<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25118186-1']);
+  _gaq.push(['_trackPageview']);
+</script>
+</head> 
+
+<body> 
+   {% include './common/nav.html' %}
+   <div id ='learnBody'>
+      <div id ='content' class="learn" style="margin-top: 97px">
+         <div id ='headerDiv'></div>
+         <div id ='centerAreaDiv'></div>
+         <div id ='progressBarDiv'></div>
+      </div>
+   </div>
+   <script>
+      function init() {
+         var learnEngine = null;
+         
+         window.onload = function() {
+            initTabs();
+            learnEngine = KarelLearnEngine();
+            window.onhashchange = learnEngine.onHashChange;      
+            window.onresize();
+            $("[title]").tooltip({ position: "top center", opacity: 0.9, tipClass: 'topTooltip'});
+         }    
+
+         window.onresize = function(){
+            if(learnEngine)learnEngine.onWindowResize();
+            ReferenceDialog.resize();
+         }     
+      }
+      init();
+   </script>
+
+</body> 
+</html>

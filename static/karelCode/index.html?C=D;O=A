@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>Index of /~cpiech/karel/karelCode</title>
+ </head>
+ <body>
+<h1>Index of /~cpiech/karel/karelCode</h1>
+  <table>
+   <tr><th valign="top"><img src="/icons/blank.gif" alt="[ICO]"></th><th><a href="?C=N;O=A">Name</a></th><th><a href="?C=M;O=A">Last modified</a></th><th><a href="?C=S;O=A">Size</a></th><th><a href="?C=D;O=D">Description</a></th></tr>
+   <tr><th colspan="5"><hr></th></tr>
+<tr><td valign="top"><img src="/icons/back.gif" alt="[PARENTDIR]"></td><td><a href="/~cpiech/karel/">Parent Directory</a></td><td>&nbsp;</td><td align="right">  - </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="borderRunSoln.js">borderRunSoln.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right"> 50 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="collectNewspaperSln.js">collectNewspaperSln.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right">502 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="colorLesson1.js">colorLesson1.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right">251 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="colorLesson1.txt">colorLesson1.txt</a></td><td align="right">2011-08-19 05:25  </td><td align="right">284 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="colorLesson2.js">colorLesson2.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right">235 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="columnStarter.js">columnStarter.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right">173 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="findMidpointSln.js">findMidpointSln.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right">810 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="fnsLesson1Starter.js">fnsLesson1Starter.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right">261 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="fnsLesson2Starter.js">fnsLesson2Starter.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right">205 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="fnsLesson6Starter.js">fnsLesson6Starter.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right"> 97 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="ifelse.js">ifelse.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right">339 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="midpointStarter.js">midpointStarter.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right">138 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="moveAndPickSln.js">moveAndPickSln.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right"> 20 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="newspaperStarter.js">newspaperStarter.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right"> 72 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="randomLesson1.js">randomLesson1.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right">229 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="randomLesson2.js">randomLesson2.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right">382 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="repeatLesson1.js">repeatLesson1.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right">104 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="repeatLesson2.js">repeatLesson2.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right">150 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="runLesson1Soln.js">runLesson1Soln.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right"> 24 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="runLesson1Soln.txt">runLesson1Soln.txt</a></td><td align="right">2011-08-19 05:25  </td><td align="right"> 24 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="runLesson1Starter.js">runLesson1Starter.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right">119 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="runLesson2Starter.js">runLesson2Starter.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right">224 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="runLesson3Starter.js">runLesson3Starter.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right"> 93 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="runLesson4Starter.js">runLesson4Starter.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right">111 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="runLesson5Starter.js">runLesson5Starter.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right">143 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="runLesson5Starter.txt">runLesson5Starter.txt</a></td><td align="right">2011-08-19 05:25  </td><td align="right">124 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="runLesson6Starter.js">runLesson6Starter.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right">117 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="runLesson6Starter.py">runLesson6Starter.py</a></td><td align="right">2011-08-19 05:25  </td><td align="right"> 97 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="simpleMoveSln.js">simpleMoveSln.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right">  4 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="simplePutSln.js">simplePutSln.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right">  9 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="simpleTurnLeftSln.js">simpleTurnLeftSln.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right">  8 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="unit1Lesson2Soln.js">unit1Lesson2Soln.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right"> 10 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="unit1Lesson3Soln.js">unit1Lesson3Soln.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right"> 33 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="unit1Lesson4Soln.js">unit1Lesson4Soln.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right"> 20 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="unit1Lesson5Soln.js">unit1Lesson5Soln.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right"> 77 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="unit2Lesson1Soln.js">unit2Lesson1Soln.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right"> 24 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="unit2Lesson1Starter.js">unit2Lesson1Starter.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right"> 99 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="unit2Lesson2Soln.js">unit2Lesson2Soln.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right"> 14 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="unit2Lesson2Starter.js">unit2Lesson2Starter.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right"> 74 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="unit2Lesson3Soln.js">unit2Lesson3Soln.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right"> 30 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="unit2Lesson3Starter.js">unit2Lesson3Starter.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right"> 84 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="unit2Lesson4Soln.js">unit2Lesson4Soln.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right"> 37 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="unit2Lesson4Starter.js">unit2Lesson4Starter.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right">175 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="whileLesson1.js">whileLesson1.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right">171 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="whileLesson2.js">whileLesson2.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right">221 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="whileLesson2.txt">whileLesson2.txt</a></td><td align="right">2011-08-19 05:25  </td><td align="right">188 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="whileLesson3.js">whileLesson3.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right">187 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="whileLesson4.js">whileLesson4.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right">274 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="whileLesson5.js">whileLesson5.js</a></td><td align="right">2011-08-19 05:25  </td><td align="right">168 </td><td>&nbsp;</td></tr>
+   <tr><th colspan="5"><hr></th></tr>
+</table>
+</body></html>
