@@ -869,10 +869,10 @@ function Unit1Lesson2(finishedCallback) {
       '/static/images/wall.png',
    ];
    var labels = [
-      '카렐',
-      '비퍼',
+      '코딩이',
+      '보석',
       '월드',
-      '월'
+      '벽'
    ];
    return PictureLesson(buttonSrcs, labels, finishedCallback, false);
 }
@@ -885,10 +885,10 @@ function Unit1Lesson1(finishedCallback) {
       '/static/images/wall.png',
    ];
    var labels = [
-      '카렐',
+      '코딩이',
       '비퍼',
-      '월드',
-      '월'
+      '보석',
+      '벽'
    ];
    return PictureDemo(buttonSrcs, labels, finishedCallback, true);
 }

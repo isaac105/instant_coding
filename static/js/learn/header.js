@@ -51,7 +51,7 @@ function Header() {
    referenceLink = MakeAbsoluteDiv(referenceLink, 'headerDiv', referenceDim);
    referenceLink.div.setAttribute('href', 'javascript:ReferenceDialog.createReferenceDialog()');
    referenceLink.div.className = 'resizableLink';
-   referenceLink.div.innerHTML = 'Reference'
+   referenceLink.div.innerHTML = '힌트'
 
    that.getHeight = function() {
       return $('#headerDiv').height();
