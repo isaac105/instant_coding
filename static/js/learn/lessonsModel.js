@@ -886,8 +886,8 @@ function Unit1Lesson1(finishedCallback) {
    ];
    var labels = [
       '코딩이',
-      '비퍼',
       '보석',
+      '월드',
       '벽'
    ];
    return PictureDemo(buttonSrcs, labels, finishedCallback, true);
