@@ -27,23 +27,16 @@ function Header() {
    homeButton.div = document.createElement('div');
    homeButton.div.id = 'homeButton';
    homeButton = MakeAbsoluteDiv(homeButton, 'headerDiv', homeButtonDim);
-   var logo = document.createElement('img');
+
    var linkUrl = "learn.html";
    var link = document.createElement('a');
    link.setAttribute('href', linkUrl);
    
-   logo.id = 'homeButtonImage';
-   logo.setAttribute('src', '/static/images/logo.png');
    var resize = homeButton.resize;
    homeButton.resize = function() {
       resize();
-      var logo = document.getElementById('homeButtonImage');
-      logo.style.height = homeButton.div.style.height;
-      logo.style.width = homeButton.div.style.width;
    }
-   homeButton.div.className = 'nonFadeInDiv';
    div.appendChild(homeButton.div);
-   link.appendChild(logo);
    homeButton.div.appendChild(link);
 
    var referenceLink = {};
@@ -73,8 +66,8 @@ function Header() {
    }
 
    that.updateHeader = function(progressModel) {
-      var text = 'Unit ' + progressModel.getUnitIndex();
-      text += ' Lesson ' + progressModel.getLessonIndex();
+      var text = '챕터 ' + progressModel.getUnitIndex();
+      text += ' 단계 ' + progressModel.getLessonIndex();
       lessonTitle.setText(text);
    }
    
