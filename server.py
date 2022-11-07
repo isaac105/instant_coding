@@ -34,11 +34,13 @@ def favicon():
 def index():
     return render_template("/index.html")
 
-
 @application.route("/lessons")
-def start():
-    return render_template("/lessons.html", path="/english/unit1/lesson1")
+def lessonsStart():
+    return render_template("/lessons.html")
 
+@application.route("/lessons.html")
+def lessons():
+    return render_template("/lessons.html", path="/english/unit1/lesson1")
 
 if __name__ == '__main__':
     application.run(host="0.0.0.0", port=5000, debug=True)
