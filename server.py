@@ -35,7 +35,7 @@ def index():
     return render_template("/index.html")
 
 
-@application.route("/lessons.html")
+@application.route("/lessons")
 def start():
     return render_template("/lessons.html", path="/english/unit1/lesson1")
 
