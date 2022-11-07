@@ -1,7 +1,5 @@
-//change this program
-//so that Karel moves
-//to the top of the
-//ledge
+// 코딩이를 오른쪽 절벽 
+// 위로 올려주세요!
 function main(){
 turnLeft();
 move();
