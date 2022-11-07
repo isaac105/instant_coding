@@ -29,6 +29,9 @@ def whoami():
 def favicon():
     return application.send_static_file("images/favicon.ico")
 
+@application.route('/signin')
+def signin():
+    return render_template("/user/signin.html")
 
 @application.route("/")
 def index():
