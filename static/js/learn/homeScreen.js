@@ -43,7 +43,7 @@ function HomeScreen(progressModel, finishedCallback) {
    };
    //var video = VideoElement(videoDim, 'content', 'GQlzz6jGCfI');
    //that.elements.push(video);
-   var image = ImageElement(imageDim, '/static/images/stanford.gif', 'content');
+   var image = ImageElement(imageDim, '/static/images/source/logo_ver2.png', 'content');
    that.elements.push(image);
 
 
