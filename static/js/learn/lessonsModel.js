@@ -664,8 +664,8 @@ function ButtonLesson(buttonMap, world, solution, finishedCallback) {
    that.elements = [];
    that.elements.push(staticKarel);
    that.elements.push(dynamicKarel);
-   that.elements.push(TextBox(textDim1, 'Goal'));
-   that.elements.push(TextBox(textDim2, 'World'));
+   that.elements.push(TextBox(textDim1, '목표'));
+   that.elements.push(TextBox(textDim2, '월드'));
    
    var actionMap = {};
    actionMap.move = AddEqualCheck(ide, staticKarel.getIde(), ide.stepMove, finishedCallback);
