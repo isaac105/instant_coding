@@ -869,7 +869,7 @@ function Unit1Lesson2(finishedCallback) {
       '/static/images/wall.png',
    ];
    var labels = [
-      '코딩이',
+      '진실이',
       '보석',
       '월드',
       '벽'
@@ -885,7 +885,7 @@ function Unit1Lesson1(finishedCallback) {
       '/static/images/wall.png',
    ];
    var labels = [
-      '코딩이',
+      '진실이',
       '보석',
       '월드',
       '벽'
