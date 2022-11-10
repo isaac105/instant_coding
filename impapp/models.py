@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import datetime
 
 from flask_sqlalchemy import SQLAlchemy
 
@@ -22,6 +23,17 @@ class Users(db.Model):
     reg_date = db.Column(db.DateTime(timezone='Asia/Seoul'), nullable=False)
 
     rel_ranking = db.relationship('Ranking', backref='users')
+
+    @staticmethod
+    def create(**kwargs):
+        kwargs.update({"stat": 1, "reg_date": datetime.datetime.now()})
+
+        item = Users(**kwargs)
+
+        db.session.add(item)
+        db.session.flush()
+
+        return item
 
     def updateinfo(self, name=None, pwd=None, phone=None, stat=None):
         if name:

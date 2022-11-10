@@ -17,9 +17,9 @@ def get_secret():
 class Config(object):
     config = get_secret()
 
-    DEBUG = False
     TESTING = False
     CSRF_ENABLED = True
+    SESSION_TYPE = "filesystem"
     SECRET_KEY = config["secret_key"]
     SQLALCHEMY_DATABASE_URI = "postgresql+psycopg2://{username}:{password}@{host}:{port}/{database}".format(**config["db"])
     SQLALCHEMY_ENGINE_OPTIONS = {"poolclass": NullPool}
@@ -35,5 +35,5 @@ class ProductionConfig(Config):
 
 class DevelopmentConfig(Config):
     DEVELOPMENT = True
-    DEBUG = False
+    DEBUG = True
     SQLALCHEMY_ECHO = True
