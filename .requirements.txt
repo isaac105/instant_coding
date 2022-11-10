@@ -1,2 +1,4 @@
 Flask
 Flask-SQLAlchemy
+Flask-Migration
+psycopg2-binary
