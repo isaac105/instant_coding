@@ -1,6 +1,6 @@
 Flask
 Flask-Session
 Flask-SQLAlchemy
-Flask-Migration
+Flask-Migrate
 psycopg2-binary
 pyjwt
