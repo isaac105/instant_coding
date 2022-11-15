@@ -431,7 +431,7 @@ A:hover {
 	line-height: 40px;
 margin: 0;
 margin-right:5px;
-   color:#ccc;
+   color:rgb(1, 1, 1);
 }
 
 .resizableLink:hover{

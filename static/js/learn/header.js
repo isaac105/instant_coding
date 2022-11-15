@@ -16,8 +16,8 @@ function Header() {
    };
 
    var referenceDim = {
-      left:0.86,
-      top:0,
+      left:0.93,
+      top:1,
       width:0.14,
       height:1.0,
    }
