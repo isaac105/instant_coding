@@ -390,7 +390,7 @@ A:hover {
 #progressBarDiv {
    position:absolute;
    width:100%;
-   background-image:url('../images/bottomBar.png');
+   /* background-image:url('../images/bottomBar.png'); */
    -webkit-background-size: cover;
    -moz-background-size: cover;
    -o-background-size: cover;
@@ -422,6 +422,7 @@ A:hover {
 }
 
 .nonFadeInDiv {
+   left: 27px;
    position:absolute;
 }
 

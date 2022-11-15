@@ -4,7 +4,7 @@ function TitleElement(xPos, text) {
    var HEIGHT_FRACTION = 0.7;
 
    var dim = {};
-   dim['left'] = xPos;
+   dim['left'] = xPos - 0.25;
    dim['top'] = (1 - HEIGHT_FRACTION) / 2;
    dim['height'] = HEIGHT_FRACTION;
 
