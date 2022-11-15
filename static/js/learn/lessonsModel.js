@@ -872,7 +872,7 @@ function Unit1Lesson2(finishedCallback) {
       '진실이',
       '보석',
       '월드',
-      '벽'
+      '장애물'
    ];
    return PictureLesson(buttonSrcs, labels, finishedCallback, false);
 }
@@ -888,7 +888,7 @@ function Unit1Lesson1(finishedCallback) {
       '진실이',
       '보석',
       '월드',
-      '벽'
+      '장애물'
    ];
    return PictureDemo(buttonSrcs, labels, finishedCallback, true);
 }
