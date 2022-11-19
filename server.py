@@ -26,10 +26,9 @@ def favicon():
 
 # ------------------- User C: 회원가입 -------------------
 # todo: 회원가입 탬플릿
-# @application.route('/signup', methods=['GET'])
-# def signup_template():
-#     return render_template("/user/signup.html")
-
+@application.route('/signup', methods=['GET'])
+def signup_template():
+    return render_template("/user/signup.html")
 
 @application.route('/signup', methods=['POST'])
 def signup():
