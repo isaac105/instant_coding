@@ -56,6 +56,18 @@ def signout():
     return jsonify(controllers.signout_user())
 
 
+# ------------------- Ranking C: 랭킹정보 추가 -------------------
+@application.route('/ranking', methods=['POST'])
+def create_ranking():
+    return jsonify(controllers.register_ranking())
+
+
+# ------------------- Ranking R: 랭킹정보 조회 -------------------
+@application.route('/ranking', methods=['GET'])
+def ranking_template():
+    return render_template("/ranking/list.html")
+
+
 @application.route("/")
 def index():
     return render_template("/index.html")

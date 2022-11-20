@@ -59,3 +59,14 @@ class Ranking(db.Model):
 
     def __str__(self):
         return f"user_idx: {self.user_idx}\nclear_time: {self.clear_time}\nreg_date: {self.reg_date}"
+
+    @staticmethod
+    def create(**kwargs):
+        kwargs.update({"reg_date": datetime.datetime.now()})
+
+        item = Ranking(**kwargs)
+
+        db.session.add(item)
+        db.session.flush()
+
+        return item
