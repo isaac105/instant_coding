@@ -88,6 +88,25 @@ def signout_user():
 
 
 @token_required
+def update_user_round():
+    """
+    request json example
+
+    {
+        "user_idx": 1,
+        "current_round": 3
+    }
+    """
+    data = request.get_json()
+
+    if session["user_idx"] == data['user_idx']:
+        Users.update_round(data["user_idx"], data["current_round"])
+        return standard_response('success', '라운드 정보 언데이트 성공')
+    else:
+        return standard_response('fail', '유저정보가 일치하지 않습니다.')
+
+
+@token_required
 def register_ranking():
     """
     request json example

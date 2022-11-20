@@ -49,7 +49,12 @@ def signin():
     return jsonify(result)
 
 
-# ------------------- User U: 회원정보 수정은 미기획 -------------------
+# ------------------- User U: 회원정보 수정은 미기획 (라운드 정보 수정은 추가) -------------------
+@application.route('/signout', methods=['POST'])
+def update_round_info():
+    return jsonify(controllers.update_user_round())
+
+
 # ------------------- User D: 로그아웃 -------------------
 @application.route('/signout', methods=['POST'])
 def signout():
