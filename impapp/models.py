@@ -20,6 +20,7 @@ class Users(db.Model):
     age = db.Column(db.Text, nullable=False)
     phone = db.Column(db.Text)
     stat = db.Column(db.SMALLINT, nullable=False)
+    current_round = db.Column(db.Integer)
     reg_date = db.Column(db.DateTime(timezone='Asia/Seoul'), nullable=False)
 
     rel_ranking = db.relationship('Ranking', backref='users')

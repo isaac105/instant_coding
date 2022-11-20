@@ -39,7 +39,8 @@ def signup_user():
         "pwd": "1234",
         "name": "2호",
         "age": 25,
-        "phone": "01056781234"
+        "phone": "01056781234",
+        "current_round": 1
     }
     """
     data = request.get_json()
@@ -50,7 +51,7 @@ def signup_user():
 
     user = Users()
     user.create(email=data['email'], pwd=hashed_password, name=data['name'],
-                age=data['age'], phone=data['phone'])
+                age=data['age'], phone=data['phone'], current_round=data['current_round'])
     return standard_response('success', '회원가입 성공')
 
 
