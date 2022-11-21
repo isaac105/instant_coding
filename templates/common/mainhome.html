@@ -20,7 +20,7 @@
                 <h3 class="text-end text-white p-2">즉석 코딩에 오신 걸 환영합니다!</h3>
 
                 <!-- 게임 시작 버튼 -->
-                <p class="p-2 text-end mx-auto"><button class="btn btn-lg btn-primary" id="btn_login">강의 시작하기 ▶</button></p>
+                <p class="p-2 text-end mx-auto"><a class="btn btn-lg btn-primary" href="./lessons">강의 시작하기 ▶</a></p>
               </div>
             </div>
           </div>
@@ -31,43 +31,20 @@
     <!-- Three columns of text below the carousel -->
     <div class="row">
       <div class="col-lg img-center">
-        <img src="../../static/images/source/main_1_little-kid.png" class="mx-auto" width="140" height="140">
+        <img src="../../../static/images/source/main_1_little-kid.png" class="mx-auto" width="140" height="140">
         <h3 class="fw-normal p-2">어린아이도 괜찮아요</h3>
         <p class="px-2">코딩을 몰라도 배울 수 있어요!</p>
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4 img-center">
-        <img src="../../static/images/source/main_2_electric-keyboard.png" class="mx-auto" width="140" height="140">
+        <img src="../../../static/images/source/main_2_electric-keyboard.png" class="mx-auto" width="140" height="140">
         <h3 class="fw-normal p-2">놀이로 재미있게 배워요</h3>
         <p class="px-2">움직이는 놀이로 코딩에 흥미를 가질 수 있어요!</p>
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4 img-center">
-        <img src="../../static/images/source/main_3_ranking.png" class="mx-auto" width="140" height="140">
+        <img src="../../../static/images/source/main_3_ranking.png" class="mx-auto" width="140" height="140">
         <h3 class="fw-normal p-2">나의 점수를 기록해요</h3>
         <p class="px-2">열심히 배우고 자신의 성적을 확인해 보세요!</p>
       </div><!-- /.col-lg-4 -->
     </div><!-- /.row -->
   </div><!-- /.container -->
 </div>
-<script>
-  $(function (){
-    $("#btn_login").on("click",function(){
-        $.ajax({
-          url:'/signin',
-          type:"POST",
-          contentType: "application/json; charset=UTF-8",
-          dataType:"json",
-          data: JSON.stringify({
-            "email": "test@gmail.com",
-            "pwd": "1234"
-          }),
-          success: function(res) {
-              alert(res['로그인에 성공했습니다.']);
-          },
-          error: function (res) {
-              alert(res['아이디 혹은 패스워드를 다시 확인해주세요.']);
-          }
-      })
-      
-    });
-  });
-</script>
