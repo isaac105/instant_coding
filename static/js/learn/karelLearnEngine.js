@@ -69,6 +69,7 @@ function KarelLearnEngine() {
       windowWidth = $(window).width(); 
       windowHeight = $(window).height() - ($(window).height() * 0.1);
 
+      content.resize(progressModel);
       that.progressBar.resize(!progressModel.isAtHomescreen());
       that.header.resize(!progressModel.isAtHomescreen());
       var headerHeight = that.header.getHeight();
