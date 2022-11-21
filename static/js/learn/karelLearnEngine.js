@@ -20,6 +20,8 @@ function KarelLearnEngine() {
       resize();
    }
 
+   that.progressModelStatus = progressModel
+
    that.onHashChange = function () {
       var previousUnit = progressModel.getUnitIndex();
       var previousLesson = progressModel.getLessonIndex();
