@@ -79,7 +79,7 @@ function KarelLearnEngine() {
       bodyHeight -= that.progressBar.getHeight();
       bodyHeight -= headerHeight;
 
-      that.centerArea.setTop (headerHeight);
+      that.centerArea.setTop (headerHeight + (headerHeight * 0.5));
       that.centerArea.setHeight(bodyHeight);
       that.centerArea.resize();
    }
