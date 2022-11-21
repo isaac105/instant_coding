@@ -75,7 +75,7 @@ function KarelLearnEngine() {
       var headerHeight = that.header.getHeight();
 
       var bodyHeight = content.getHeight() - (content.getHeight() * 0.1);
-      console.log(bodyHeight)
+
       bodyHeight -= that.progressBar.getHeight();
       bodyHeight -= headerHeight;
 
