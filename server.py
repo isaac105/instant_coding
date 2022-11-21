@@ -26,10 +26,9 @@ def favicon():
 
 # ------------------- User C: 회원가입 -------------------
 # todo: 회원가입 탬플릿
-# @application.route('/signup', methods=['GET'])
-# def signup_template():
-#     return render_template("/user/signup.html")
-
+@application.route('/signup', methods=['GET'])
+def signup_template():
+    return render_template("/user/signup.html")
 
 @application.route('/signup', methods=['POST'])
 def signup():
@@ -50,11 +49,28 @@ def signin():
     return jsonify(result)
 
 
-# ------------------- User U: 회원정보 수정은 미기획 -------------------
+# ------------------- User U: 회원정보 수정은 미기획 (라운드 정보 수정은 추가) -------------------
+@application.route('/signout', methods=['POST'])
+def update_round_info():
+    return jsonify(controllers.update_user_round())
+
+
 # ------------------- User D: 로그아웃 -------------------
 @application.route('/signout', methods=['POST'])
 def signout():
     return jsonify(controllers.signout_user())
+
+
+# ------------------- Ranking C: 랭킹정보 추가 -------------------
+@application.route('/ranking', methods=['POST'])
+def create_ranking():
+    return jsonify(controllers.register_ranking())
+
+
+# ------------------- Ranking R: 랭킹정보 조회 -------------------
+@application.route('/ranking', methods=['GET'])
+def ranking_template():
+    return render_template("/ranking/list.html")
 
 
 @application.route("/")

@@ -66,11 +66,11 @@ function UnitTestElement(dim, srcStart, srcGoal, parentId) {
    }
 
    that.animateIncorrect = function() {
-      that.createHoverIcon('./images/wrong.png');
+      that.createHoverIcon('./static/images/wrong.png');
    }
 
    that.animateCorrect = function() {
-      that.createHoverIcon('./images/correct.png');
+      that.createHoverIcon('./static/images/correct.png');
       
    }
    

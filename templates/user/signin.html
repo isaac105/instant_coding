@@ -1,101 +1,102 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-        {% include './common/header.html' %}
-    <body>
-    <title>Signin</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/">
-<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+<head>
+  <meta charset="utf-8">
+  {% include './common/header.html' %}
+  <title>로그인</title>
+  <style>
+    main {
+      width: 330px;
+      height: 100%;
+    }
 
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
+    main {
+      display: flex;
+      align-items: center;
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
+    }
 
-      .b-example-divider {
-        height: 3rem;
-        background-color: rgba(0, 0, 0, .1);
-        border: solid rgba(0, 0, 0, .15);
-        border-width: 1px 0;
-        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-      }
+    .main-background {
+      width: 100%;
+      padding-top: 40px;
+      padding-bottom: 40px;
+      background-color: #f5f5f5;
+    }
 
-      .b-example-vr {
-        flex-shrink: 0;
-        width: 1.5rem;
-        height: 100vh;
-      }
+    .form-signin {
+      max-width: 330px;
+      padding: 15px;
+    }
 
-      .bi {
-        vertical-align: -.125em;
-        fill: currentColor;
-      }
+    .form-signin .form-floating:focus-within {
+      z-index: 2;
+    }
 
-      .nav-scroller {
-        position: relative;
-        z-index: 2;
-        height: 2.75rem;
-        overflow-y: hidden;
-      }
+    .form-signin input[type="email"] {
+      margin-bottom: -1px;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
 
-      .nav-scroller .nav {
-        display: flex;
-        flex-wrap: nowrap;
-        padding-bottom: 1rem;
-        margin-top: -1px;
-        overflow-x: auto;
-        text-align: center;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-      }
-    </style>
+    .form-signin input[type="password"] {
+      margin-bottom: 10px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+  </style>
+</head>
 
-    
-    <!-- Custom styles for this template -->
-    <link href="signin.css" rel="stylesheet">
-  </head>
-  <div>
+<body class="text-center m-auto row-cols-1">
+  <div class="mx-auto">
     {% include './common/nav.html' %}
-</div>
-  <body class="text-center">
-    
-<main class="form-signin w-100 m-auto">
-  <form>
-    <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+  </div>
+  <div class="mx-auto main-background">
+    <main class=" m-auto row-cols-1">
+      <form>
+        <h1 class="h3 mb-3 fw-normal">로그인</h1>
 
-    <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-      <label for="floatingInput">Email address</label>
-    </div>
-    <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-      <label for="floatingPassword">Password</label>
-    </div>
+        <div class="form-floating">
+          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <label for="floatingInput">이메일 주소</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+          <label for="floatingPassword">비밀번호</label>
+        </div>
 
-    <div class="checkbox mb-3">
-      <label>
-        <input type="checkbox" value="remember-me"> Remember me
-      </label>
-    </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-    <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
-  </form>
-</main>
-
-
-    
-  </body>
+        <div class="checkbox mb-3 p-2">
+          <label>
+            <input type="checkbox" value="remember-me"> 계정 기억하기
+          </label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" id="btn_login">접속하기</button>
+        <p class="mt-5 mb-3 text-muted">&copy;2022 즉석코딩</p>
+      </form>
+    </main>
+  </div>
+</body>
 </html>
+<script>
+  $(function (){
+    $("#btn_login").on("click",function(){
+        $.ajax({
+          url:'/signin',
+          type:"POST",
+          contentType: "application/json; charset=UTF-8",
+          dataType:"json",
+          data: JSON.stringify({
+            "email": "test@gmail.com",
+            "pwd": "1234"
+          }),
+          success: function(res) {
+              alert(res['로그인에 성공했습니다.']);
+          },
+          error: function (res) {
+              alert(res['아이디 혹은 패스워드를 다시 확인해주세요.']);
+          }
+      })
+      
+    });
+  });
+</script>

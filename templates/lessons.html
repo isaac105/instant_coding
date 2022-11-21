@@ -5,12 +5,6 @@
    <script src="{{url_for('static', filename='js/html/websiteImports.js') }}"></script>
 	<script>importCss();</script>
 	<script>importJs();</script>
-	<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-25118186-1']);
-  _gaq.push(['_trackPageview']);
-</script>
 </head> 
 
 <body> 
@@ -18,20 +12,28 @@
    <div id ='learnBody'>
       <div id ='content' class="learn" style="margin-top: 97px">
          <div id ='headerDiv'></div>
+         
          <div id ='centerAreaDiv'></div>
          <div id ='progressBarDiv' style="margin-top: -71.5%;"></div>
       </div>
    </div>
    <script>
+      var stepIndex = ''
+      var levelIndex = ''
       function init() {
          var learnEngine = null;
          
          window.onload = function() {
             initTabs();
             learnEngine = KarelLearnEngine();
-            window.onhashchange = learnEngine.onHashChange;      
+            window.onhashchange = learnEngine.onHashChange;
+            stepIndex = learnEngine.progressModelStatus.getUnitIndex();
+            levelIndex = learnEngine.progressModelStatus.getLessonIndex();
             window.onresize();
             $("[title]").tooltip({ position: "top center", opacity: 0.9, tipClass: 'topTooltip'});
+
+            console.log('local', stepIndex)
+            console.log('local', levelIndex)
          }    
 
          window.onresize = function(){
@@ -40,6 +42,9 @@
          }     
       }
       init();
+
+      console.log('global', stepIndex)
+      console.log('global', levelIndex)
    </script>
 
 </body> 

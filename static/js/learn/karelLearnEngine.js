@@ -20,6 +20,8 @@ function KarelLearnEngine() {
       resize();
    }
 
+   that.progressModelStatus = progressModel
+
    that.onHashChange = function () {
       var previousUnit = progressModel.getUnitIndex();
       var previousLesson = progressModel.getLessonIndex();
@@ -67,18 +69,19 @@ function KarelLearnEngine() {
 
    function resize() {
       windowWidth = $(window).width(); 
-      windowHeight = $(window).height();
+      windowHeight = $(window).height() - ($(window).height() * 0.1);
 
       content.resize(progressModel);
       that.progressBar.resize(!progressModel.isAtHomescreen());
       that.header.resize(!progressModel.isAtHomescreen());
       var headerHeight = that.header.getHeight();
 
-      var bodyHeight = content.getHeight();
+      var bodyHeight = content.getHeight() - (content.getHeight() * 0.1);
+
       bodyHeight -= that.progressBar.getHeight();
       bodyHeight -= headerHeight;
 
-      that.centerArea.setTop (headerHeight);
+      that.centerArea.setTop (headerHeight + (headerHeight * 0.5));
       that.centerArea.setHeight(bodyHeight);
       that.centerArea.resize();
    }
