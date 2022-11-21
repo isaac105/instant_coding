@@ -5,7 +5,7 @@
 
 function place50Beepers() {
 repeat(50) {
-// your code here
+  // 여기에 작성해주세요~
 }
 }
 
