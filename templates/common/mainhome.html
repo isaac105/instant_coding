@@ -20,7 +20,7 @@
                 <h3 class="text-end text-white p-2">즉석 코딩에 오신 걸 환영합니다!</h3>
 
                 <!-- 게임 시작 버튼 -->
-                <p class="p-2 text-end mx-auto"><a class="btn btn-lg btn-primary" href="./lessons">강의 시작하기 ▶</a></p>
+                <p class="p-2 text-end mx-auto"><button class="btn btn-lg btn-primary" id="btn_login">강의 시작하기 ▶</button></p>
               </div>
             </div>
           </div>
@@ -48,3 +48,26 @@
     </div><!-- /.row -->
   </div><!-- /.container -->
 </div>
+<script>
+  $(function (){
+    $("#btn_login").on("click",function(){
+        $.ajax({
+          url:'/signin',
+          type:"POST",
+          contentType: "application/json; charset=UTF-8",
+          dataType:"json",
+          data: JSON.stringify({
+            "email": "test@gmail.com",
+            "pwd": "1234"
+          }),
+          success: function(res) {
+              alert(res['로그인에 성공했습니다.']);
+          },
+          error: function (res) {
+              alert(res['아이디 혹은 패스워드를 다시 확인해주세요.']);
+          }
+      })
+      
+    });
+  });
+</script>
