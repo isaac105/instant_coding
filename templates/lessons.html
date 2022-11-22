@@ -27,8 +27,7 @@
                <h5 class="modal-title" id="hintModalLabel">힌트</h5>
                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-               <img src="../static/images/hint/test.png" class="img-fluid">
+            <div class="modal-body" id="hintInfo">
             </div>
             <div class="modal-footer">
                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">닫기</button>
@@ -49,7 +48,6 @@
             window.onhashchange = learnEngine.onHashChange;
             stepIndex = learnEngine.progressModelStatus.getUnitIndex();
             levelIndex = learnEngine.progressModelStatus.getLessonIndex();
-            // $('#hint').html(stepIndex, levelIndex);
 
             window.onresize();
             $("[title]").tooltip({ position: "top center", opacity: 0.9, tipClass: 'topTooltip'});
@@ -64,11 +62,10 @@
 
       $('#hint').click(function (){
          learnEngine = KarelLearnEngine();
-
          stepIndex = learnEngine.progressModelStatus.getUnitIndex();
          levelIndex = learnEngine.progressModelStatus.getLessonIndex();
-         console.log('stepIndex', stepIndex)
-         console.log('levelIndex', levelIndex)
+
+         $('div#hintInfo').append('<img src="../static/images/hint/hint_' + stepIndex + '-' + levelIndex + '.png" class="img-fluid">')
          init();
       })
    </script>
