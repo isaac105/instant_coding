@@ -12,9 +12,29 @@
    <div id ='learnBody'>
       <div id ='content' class="learn" style="margin-top: 97px">
          <div id ='headerDiv'></div>
-         
+         <div id="hint" style="margin-top: 5%; float: right;">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#hintModal">힌트보기</button>
+         </div>
          <div id ='centerAreaDiv'></div>
          <div id ='progressBarDiv' style="margin-top: -71.5%;"></div>
+      </div>
+      <!-- Modal -->
+      <div class="modal fade" id="hintModal" tabindex="-1" aria-labelledby="hintModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h5 class="modal-title" id="hintModalLabel">힌트</h5>
+               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+               <img src="../static/images/hint/test.png" class="img-fluid">
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-primary" data-bs-dismiss="modal">닫기</button>
+            </div>
+         </div>
+         </div>
       </div>
    </div>
    <script>
@@ -29,11 +49,10 @@
             window.onhashchange = learnEngine.onHashChange;
             stepIndex = learnEngine.progressModelStatus.getUnitIndex();
             levelIndex = learnEngine.progressModelStatus.getLessonIndex();
+            // $('#hint').html(stepIndex, levelIndex);
+
             window.onresize();
             $("[title]").tooltip({ position: "top center", opacity: 0.9, tipClass: 'topTooltip'});
-
-            console.log('local', stepIndex)
-            console.log('local', levelIndex)
          }    
 
          window.onresize = function(){
@@ -43,8 +62,15 @@
       }
       init();
 
-      console.log('global', stepIndex)
-      console.log('global', levelIndex)
+      $('#hint').click(function (){
+         learnEngine = KarelLearnEngine();
+
+         stepIndex = learnEngine.progressModelStatus.getUnitIndex();
+         levelIndex = learnEngine.progressModelStatus.getLessonIndex();
+         console.log('stepIndex', stepIndex)
+         console.log('levelIndex', levelIndex)
+         init();
+      })
    </script>
 
 </body> 

@@ -39,13 +39,6 @@ function Header() {
    div.appendChild(homeButton.div);
    homeButton.div.appendChild(link);
 
-   var referenceLink = {};
-   referenceLink.div = document.createElement('a');
-   referenceLink = MakeAbsoluteDiv(referenceLink, 'headerDiv', referenceDim);
-   referenceLink.div.setAttribute('href', 'javascript:ReferenceDialog.createReferenceDialog()');
-   referenceLink.div.className = 'resizableLink';
-   referenceLink.div.innerHTML = '힌트'
-
    that.getHeight = function() {
       return $('#headerDiv').height();
    }
@@ -59,10 +52,6 @@ function Header() {
       lessonTitle.resize();
       homeButton.resize();
       var centerHeight = $('#headerDiv').height();
-      var referenceLinkHeight = centerHeight * 0.5;
-      referenceLink.div.style.fontSize = referenceLinkHeight + 'px';
-      referenceLink.div.style.lineHeight = centerHeight + 'px';
-      referenceLink.resize();
    }
 
    that.updateHeader = function(progressModel) {
