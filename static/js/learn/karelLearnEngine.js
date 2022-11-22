@@ -21,8 +21,10 @@ function KarelLearnEngine() {
    }
 
    that.progressModelStatus = progressModel
-
+   
    that.onHashChange = function () {
+      that.progressModelStatus = ProgressModel(lessonsModel)
+
       var previousUnit = progressModel.getUnitIndex();
       var previousLesson = progressModel.getLessonIndex();
       progressModel.loadHash();
@@ -32,14 +34,13 @@ function KarelLearnEngine() {
          render(newUnit != previousUnit);
       }
    }
-
+   
    that.changeLesson = function(lesson) {
       progressModel.changeLesson(lesson);
       that.centerArea.fadeOutElements(finishedChangeAnimation);
    }
 
    function render(newUnit) {
-      //console.log('render');
       if (!progressModel.isAtHomescreen()) {
          if (newUnit) {
             that.progressBar.createLessonIcons(progressModel);
@@ -81,7 +82,7 @@ function KarelLearnEngine() {
       bodyHeight -= that.progressBar.getHeight();
       bodyHeight -= headerHeight;
 
-      that.centerArea.setTop (headerHeight + (headerHeight * 0.5));
+      that.centerArea.setTop (headerHeight + (headerHeight * 0.7));
       that.centerArea.setHeight(bodyHeight);
       that.centerArea.resize();
    }
