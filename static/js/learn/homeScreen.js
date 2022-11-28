@@ -22,7 +22,7 @@ function HomeScreen(progressModel, finishedCallback) {
       destinationUrl += progressModel.getHashForLesson(1, 1, 'english');
       window.location = destinationUrl;
    }
-   var text = progressModel.hasStarted() ? 'Continue' : 'Start';
+   var text = progressModel.hasStarted() ? 'Continue' : '시작';
    var continueButton = TextButton(continueDim, text, 'content', continueEvent);
    that.elements.push(continueButton);
 
