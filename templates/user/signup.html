@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+{#    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />#}
+{#    <script defer src="https://pyscript.net/latest/pyscript.js"></script>#}
     {% include './common/header.html' %}
     <title>회원가입</title>
     <style>
@@ -46,29 +46,6 @@
             border-top-right-radius: 0;
         }
     </style>
-    <script>
-        $(function (){
-          $frm.on("submit",function(e){
-            e.preventDefault();
-            var dataInfo = $frm.serialize();
-
-            $.ajax({
-              url:'/signup',
-              type:"POST",
-              contentType: "application/json; charset=UTF-8",
-              dataType:"json",
-              data: dataInfo
-            }),
-            success: function(res) {
-                alert(res['회원가입에 성공했습니다.']);
-            },
-            error: function (res) {
-                alert(res['이미 가입된 회원입니다.']);
-            }
-        })
-            
-        });
-      </script>
 </head>
 
 <body class="text-center m-auto row-cols-1">
@@ -77,7 +54,7 @@
     </div>
     <div class="mx-auto main-background">
         <main class=" m-auto row-cols-1">
-            <form>
+            <form id="reg_form">
                 <h1 class="h3 mb-3 fw-normal">회원가입</h1>
                 <h5>즉석 코딩에 오신 것을 환영해요!</h5>
 
@@ -102,11 +79,44 @@
                     <label for="floatingInput">나이</label>
                 </div>
                 <div class="mt-1">
-                <button class="w-100 btn btn-lg btn-primary" type="submit">가입하기</button>
+                <input type="button" class="w-100 btn btn-lg btn-primary" value="가입하기" onclick="signup_button()">
                 </div>
                 <p class="mt-5 mb-3 text-muted">&copy;2022 즉석코딩</p>
             </form>
         </main>
     </div>
 </body>
+<script>
+    function signup_button() {
+        var email = document.getElementById("email").value;
+        var pwd = document.getElementById("pwd").value;
+        var pwd_chk = document.getElementById("pwd_check").value;
+        var name = document.getElementById("name").value;
+        var age = document.getElementById("age").value;
+
+        if (pwd !== pwd_chk) {
+            alert('비밀번호화 비밀번호 확인이 일치하지 않습니다.')
+        } else {
+            $.ajax({
+                url:'/signup',
+                type:"POST",
+                contentType: "application/json; charset=UTF-8",
+                dataType:"json",
+                data: JSON.stringify({
+                    'email': email,
+                    'pwd': pwd,
+                    'name': name,
+                    'age': age
+                }),
+                complete: function(res) {
+                    if (res.responseText === 'success') {
+                        location.href = "/signin";
+                    } else {
+                        alert('중복되는 이메일입니다.');
+                    }
+                }
+            })
+        }
+    }
+</script>
 </html>

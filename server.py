@@ -39,7 +39,8 @@ def signup_template():
 
 @application.route('/signup', methods=['POST'])
 def signup():
-    return jsonify(controllers.signup_user())
+    result = controllers.signup_user()
+    return result["status"]
 
 
 # ------------------- User R: 로그인 -------------------
