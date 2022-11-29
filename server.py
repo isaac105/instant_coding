@@ -14,10 +14,10 @@ db.init_app(application)
 migrate = Migrate(application, db)
 
 
-def render_template_with_userinfo(path, **kwargs):
+def render_template_with_userinfo(template, **kwargs):
     if session.get('token'):
         kwargs.update({'is_logined': session['token'], 'name': session['name']})
-    return render_template(path, **kwargs)
+    return render_template(template, **kwargs)
 
 
 @application.route('/api/whoami')
