@@ -14,10 +14,10 @@
     <div class="col-md-3 text-end">
         {% if is_logined %}
             {{ name }}
-            <button type="button" class="btn btn-outline-primary me-2" onclick="location.href='./signout'">로그아웃</button>
+            <button type="button" class="btn btn-outline-light me-2" onclick="location.href='./signout'">로그아웃</button>
         {% else %}
-          <button type="button" class="btn btn-outline-primary me-2" onclick="location.href='./signin'">로그인</button>
-          <button type="button" class="btn btn-primary" onclick="location.href='./signup'">회원가입</button>
+          <button type="button" class="btn btn-outline-light me-2" onclick="location.href='./signin'">로그인</button>
+          <button type="button" class="btn btn-light" onclick="location.href='./signup'">회원가입</button>
         {% endif %}
     </div>
   </header>
