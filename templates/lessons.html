@@ -10,13 +10,18 @@
 <body> 
    {% include './common/nav.html' %}
    <div id ='learnBody'>
-      <div id ='content' class="learn" style="margin-top: 97px">
+      <div id ='content' class="learn" style="margin-top: 97px;">
          <div id ='headerDiv'></div>
-         <div id="hint" style="margin-top: 5%; float: right;">
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#hintModal">힌트보기</button>
+         <div id ='centerAreaDiv'>
+            <div id="hint" style="float: right;">
+               <!-- Button trigger modal -->
+               <button class="hint-btn" type="button" data-bs-toggle="modal" data-bs-target="#hintModal">
+                  <!-- 힌트 -->
+                  <img src="../static/images/source/hint.png">
+               </button>
+            </div>
+
          </div>
-         <div id ='centerAreaDiv'></div>
          <div id ='progressBarDiv' style="margin-top: -71.5%;"></div>
       </div>
       <!-- Modal -->
@@ -79,3 +84,17 @@
 
 </body> 
 </html>
+<style>
+   .hint-btn{
+      background-color: white;
+      border: none;
+      color: white;
+      padding: 15px 30px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+   }
+</style>
