@@ -46,6 +46,14 @@
       border-top-left-radius: 0;
       border-top-right-radius: 0;
     }
+
+    .custom_button {
+        background-color: #204184;
+    }
+
+    .custom_button:hover {
+        background-color: #172245;
+    }
   </style>
 </head>
 
@@ -72,7 +80,7 @@
             <input type="checkbox" value="remember-me"> 계정 기억하기
           </label>
         </div>
-        <input type="button" class="w-100 btn btn-lg btn-primary" id="btn_login" value="접속하기" onclick="login_button()">
+        <input type="button" class="w-100 btn btn-lg btn-primary custom_button" id="btn_login" value="접속하기" onclick="login_button()">
         <p class="mt-5 mb-3 text-muted">&copy;2022 즉석코딩</p>
       </form>
     </main>
