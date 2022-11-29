@@ -104,6 +104,8 @@
 
         if (pwd !== pwd_chk) {
             alert('비밀번호화 비밀번호 확인이 일치하지 않습니다.')
+        } else if (email === '' || name === '' || age === '') {
+            alert('정보를 빠짐없이 입력해주세요.')
         } else {
             $.ajax({
                 url:'/signup',

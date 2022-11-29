@@ -94,6 +94,8 @@
 
       if (email === '' || password === ''){
           alert("이메일 패스워드를 모두 입력해주세요.");
+      } else if (email === '' || password === '') {
+          alert('정보를 빠짐없이 입력해주세요.')
       } else {
           $.ajax({
               url:'/signin',
