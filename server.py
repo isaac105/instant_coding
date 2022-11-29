@@ -69,15 +69,15 @@ def signout():
 
 
 # ------------------- Ranking C: 랭킹정보 추가 -------------------
-@application.route('/ranking', methods=['POST'])
+@application.route('/rank', methods=['POST'])
 def create_ranking():
     return jsonify(controllers.register_ranking())
 
 
 # ------------------- Ranking R: 랭킹정보 조회 -------------------
-@application.route('/ranking', methods=['GET'])
+@application.route('/rank', methods=['GET'])
 def ranking_template():
-    return render_template_with_userinfo("/ranking/list.html")
+    return render_template_with_userinfo("/rank/list.html")
 
 
 @application.route("/")
