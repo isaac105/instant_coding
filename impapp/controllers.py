@@ -50,7 +50,7 @@ def signup_user():
 
     user = Users()
     user.create(email=data['email'], pwd=hashed_password, name=data['name'],
-                age=data['age'], phone=data['phone'], current_round=data['current_round'])
+                age=data['age'], phone='', current_round=0)
     return standard_response('success', '회원가입 성공')
 
 
