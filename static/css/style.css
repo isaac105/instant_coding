@@ -521,7 +521,7 @@ margin-right:5px;
    display:none;
    -moz-border-radius: 7px;
    border-radius: 7px;
-   background:#f6f6f6 ;
+   background:#172245  ;
 }
 
 .progressBox {
@@ -530,7 +530,7 @@ margin-right:5px;
 }
 
 .unitBox:hover{
-   background:blue;
+   background:#ef4136;
    color:white;
 }
 
@@ -567,6 +567,7 @@ margin-right:5px;
 
 .centeredText {
     width: auto;
+    background: #cdebfc;
     color: #172245;
     text-align:center;
 }

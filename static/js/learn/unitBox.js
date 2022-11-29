@@ -27,7 +27,7 @@ function UnitBox(parentId, dim, callback, unit, status, tooltip) {
    }
 
    function onMouseUp() {
-      that.div.style.background = 'blue';
+      that.div.style.background = '#ef4136';
    }
 
    function onMouseDown() {
@@ -35,7 +35,7 @@ function UnitBox(parentId, dim, callback, unit, status, tooltip) {
    }
 
    function onMouseOver() {
-      that.div.style.background = 'blue';
+      that.div.style.background = '#ef4136';
    }
 
    function onMouseOut() {
@@ -46,7 +46,7 @@ function UnitBox(parentId, dim, callback, unit, status, tooltip) {
       if (current) {
          that.div.style.background = 'white';
       } else if (status == 'notStarted' || status == 'none') {
-         that.div.style.background = 'grey';
+         that.div.style.background = '#172245';
       } else if (status == 'finished') {
          that.div.style.background = 'green';
       } else if (status == 'started') {
