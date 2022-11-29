@@ -65,11 +65,12 @@ def signin_user():
     """
     data = request.get_json()
     user = Users.query.filter_by(email=data["email"]).first()
-    if check_password_hash(user.pwd, data["pwd"]):
+    if user and check_password_hash(user.pwd, data["pwd"]):
         token = jwt.encode(
             {'idx': user.idx, 'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=45)},
             current_app.config['SECRET_KEY'], "HS256")
         session["user_idx"] = user.idx
+        session["name"] = user.name
         session["token"] = token
 
         return standard_response('success', '로그인 성공')
@@ -80,6 +81,7 @@ def signin_user():
 def signout_user():
     try:
         del session["user_idx"]
+        del session["name"]
         del session["token"]
 
         return standard_response('success', '로그아웃 되었습니다.')

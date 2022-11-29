@@ -3,7 +3,7 @@ import os
 
 from impapp import controllers
 from impapp.models import db
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, session
 from flask_migrate import Migrate
 from flask_session import Session
 
@@ -12,6 +12,12 @@ application.config.from_object('impapp.config.DevelopmentConfig')
 
 db.init_app(application)
 migrate = Migrate(application, db)
+
+
+def render_template_with_userinfo(path, **kwargs):
+    if session.get('token'):
+        kwargs.update({'is_logined': session['token'], 'name': session['name']})
+    return render_template(path, **kwargs)
 
 
 @application.route('/api/whoami')
@@ -28,7 +34,8 @@ def favicon():
 # todo: 회원가입 탬플릿
 @application.route('/signup', methods=['GET'])
 def signup_template():
-    return render_template("/user/signup.html")
+    return render_template_with_userinfo("/user/signup.html")
+
 
 @application.route('/signup', methods=['POST'])
 def signup():
@@ -38,15 +45,13 @@ def signup():
 # ------------------- User R: 로그인 -------------------
 @application.route('/signin', methods=['GET'])
 def signin_template():
-    return render_template("/user/signin.html")
+    return render_template_with_userinfo("/user/signin.html")
 
 
 @application.route('/signin', methods=['POST'])
 def signin():
     result = controllers.signin_user()
-    if result["status"] == 'success':
-        return render_template("/index.html")
-    return jsonify(result)
+    return result["status"]
 
 
 # ------------------- User U: 회원정보 수정은 미기획 (라운드 정보 수정은 추가) -------------------
@@ -56,9 +61,10 @@ def update_round_info():
 
 
 # ------------------- User D: 로그아웃 -------------------
-@application.route('/signout', methods=['POST'])
+@application.route('/signout', methods=['GET'])
 def signout():
-    return jsonify(controllers.signout_user())
+    controllers.signout_user()
+    return render_template_with_userinfo("/index.html")
 
 
 # ------------------- Ranking C: 랭킹정보 추가 -------------------
@@ -70,22 +76,22 @@ def create_ranking():
 # ------------------- Ranking R: 랭킹정보 조회 -------------------
 @application.route('/ranking', methods=['GET'])
 def ranking_template():
-    return render_template("/ranking/list.html")
+    return render_template_with_userinfo("/ranking/list.html")
 
 
 @application.route("/")
 def index():
-    return render_template("/index.html")
+    return render_template_with_userinfo("/index.html")
 
 
 @application.route("/lessons")
 def lessonsStart():
-    return render_template("/lessons.html")
+    return render_template_with_userinfo("/lessons.html")
 
 
 @application.route("/lessons.html")
 def lessons():
-    return render_template("/lessons.html", path="/english/unit1/lesson1")
+    return render_template_with_userinfo("/lessons.html", path="/english/unit1/lesson1")
 
 
 if __name__ == '__main__':

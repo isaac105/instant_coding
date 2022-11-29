@@ -3,8 +3,8 @@
 
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-  <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+{#  <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />#}
+{#  <script defer src="https://pyscript.net/latest/pyscript.js"></script>#}
   {% include './common/header.html' %}
   <title>로그인</title>
   <style>
@@ -72,7 +72,7 @@
             <input type="checkbox" value="remember-me"> 계정 기억하기
           </label>
         </div>
-        <button class="w-100 btn btn-lg btn-primary" id="btn_login">접속하기</button>
+        <input type="button" class="w-100 btn btn-lg btn-primary" id="btn_login" value="접속하기" onclick="login_button()">
         <p class="mt-5 mb-3 text-muted">&copy;2022 즉석코딩</p>
       </form>
     </main>
@@ -80,25 +80,30 @@
 </body>
 </html>
 <script>
-  $(function (){
-    $("#btn_login").on("click",function(){
-        $.ajax({
-          url:'/signin',
-          type:"POST",
-          contentType: "application/json; charset=UTF-8",
-          dataType:"json",
-          data: JSON.stringify({
-            "email": "test@gmail.com",
-            "pwd": "1234"
-          }),
-          success: function(res) {
-              alert(res['로그인에 성공했습니다.']);
-          },
-          error: function (res) {
-              alert(res['아이디 혹은 패스워드를 다시 확인해주세요.']);
-          }
-      })
-      
-    });
-  });
+  function login_button() {
+      var email = document.getElementById("floatingInput").value;
+      var password = document.getElementById("floatingPassword").value;
+
+      if (email === '' || password === ''){
+          alert("이메일 패스워드를 모두 입력해주세요.");
+      } else {
+          $.ajax({
+              url:'/signin',
+              type:"POST",
+              contentType: "application/json; charset=UTF-8",
+              dataType:"json",
+              data: JSON.stringify({
+                "email": email,
+                "pwd": password
+              }),
+              complete: function(res) {
+                  if (res.responseText === 'success') {
+                      location.href = "/lessons";
+                  } else {
+                      alert('로그인 정보를 다시 확인해주세요.');
+                  }
+              }
+          });
+      }
+  }
 </script>
