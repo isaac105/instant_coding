@@ -2,12 +2,20 @@
 <html lang="en">
 <head>
     {% include './common/header.html' %}
+    <style>      
+    .img-center {
+      text-align: center;
+    }
+
+    .container{
+      background: #172245;
+    }
+  
+    </style>
 </head>
 <body>
-    <div>
+    <div class="container">
         {% include './common/nav.html' %}
-    </div>
-    <div>
         {% include './common/mainhome.html'%}
     </div>
 </body>
