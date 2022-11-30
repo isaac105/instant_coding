@@ -2,8 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-{#    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />#}
-{#    <script defer src="https://pyscript.net/latest/pyscript.js"></script>#}
     {% include './common/header.html' %}
     <title>회원가입</title>
     <style>
@@ -53,47 +51,49 @@
         .custom_button:hover {
             background-color: #172245;
         }
+
+        .card{
+            width: 70%;
+            left: 15%;
+        }
     </style>
 </head>
-
-<body class="text-center m-auto row-cols-1">
-    <div class="mx-auto">
+<body class="">
+    <div class="container">
         {% include './common/nav.html' %}
-    </div>
-    <div class="mx-auto main-background">
-        <main class=" m-auto row-cols-1">
-            <form id="reg_form">
-                <h1 class="h3 mb-3 fw-normal">회원가입</h1>
-                <h5>즉석 코딩에 오신 것을 환영해요!</h5>
-
-                <div class="form-floating">
+        <div class="card input-form-background text-center">
+            <h1 class="h3 mb-3 fw-normal">회원가입</h1>
+            <h5>즉석 코딩에 오신 것을 환영해요!</h5>
+            <form class="row">
+                <div class="col-md-12">
+                    <label for="email" class="form-label mt-4">이메일 주소</label>
                     <input type="email" class="form-control" id="email" placeholder="name@example.com">
-                    <label for="floatingInput">이메일 주소</label>
+                </div>                    
+                <div class="col-md-6">
+                    <label for="pwd" class="form-label mt-4">비밀번호</label>
+                    <input type="password" class="form-control" id="pwd" placeholder="비밀번호를 입력해주세요.">
                 </div>
-                <div class="form-floating">
-                    <input type="password" class="form-control" id="pwd" placeholder="Password">
-                    <label for="floatingPassword">비밀번호</label>
+                <div class="col-md-6">
+                    <label for="pwd_check" class="form-label mt-4">비밀번호 확인</label>
+                    <input type="password" class="form-control" id="pwd_check" placeholder="비밀번호를 다시 입력해주세요.">
                 </div>
-                <div class="form-floating">
-                    <input type="password" class="form-control" id="pwd_check" placeholder="Password">
-                    <label for="floatingPassword">비밀번호 확인</label>
+                <div class="col-md-6">
+                    <label for="name" class="form-label mt-4">이름</label>
+                    <input type="text" class="form-control" id="name" placeholder="이름을 입력해주세요.">
                 </div>
-                <div class="form-floating">
-                    <input type="text" class="form-control" id="name" placeholder="Password">
-                    <label for="floatingInput">이름</label>
-                </div>
-                <div class="form-floating">
-                    <input type="text" class="form-control" id="age" placeholder="Password">
-                    <label for="floatingInput">나이</label>
+                <div class="col-md-6">
+                    <label for="age" class="form-label mt-4">나이</label>
+                    <input type="text" class="form-control" id="age" placeholder="나이를 입력해주세요.">
                 </div>
                 <div class="mt-1">
-                <input type="button" class="w-100 btn btn-lg btn-primary custom_button" value="가입하기" onclick="signup_button()">
+                    <input type="button" class="w-100 btn btn-lg btn-primary custom_button" value="가입하기" onclick="signup_button()">
                 </div>
-                <p class="mt-5 mb-3 text-muted">&copy;2022 즉석코딩</p>
             </form>
-        </main>
+        </div>
+        {% include './common/footer.html' %}
     </div>
 </body>
+</html>
 <script>
     function signup_button() {
         var email = document.getElementById("email").value;
@@ -129,4 +129,3 @@
         }
     }
 </script>
-</html>
