@@ -218,7 +218,7 @@ function BasicIdeDemo(soln, world, starterCode, editable, finishedCallback) {
    ideSettings.world = world;
    ideSettings.readOnly = true;
    that.ide = KarelIdeElement(dim, 'centerAreaDiv', ideSettings);
-   var runButton = TextButton(runDim, 'Run', 'centerAreaDiv', function() {
+   var runButton = TextButton(runDim, '실행', 'centerAreaDiv', function() {
       that.ide.getIde().playButton(function() {
          
          finishedCallback();
