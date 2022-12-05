@@ -43,36 +43,32 @@ function ProgressModel(lessonsModel) {
          currLessonIndex = 1;
          unit = getCurrUnitIndex();
          console.log('last? ', unit)
-         rankReg()
-
+         
+         $.ajax({
+            url:'http://127.0.0.1:5000/rank',
+            type:"POST",
+            contentType: "application/json; charset=UTF-8",
+            dataType:"json",
+            data: JSON.stringify({
+               'user_idx': 1,
+               'hint_cnt': 0,
+               'clear_time': 123,
+            }),
+            complete: function(res) {
+               if (res.responseText === 'success') {
+                  console.log('랭킹 불러오기 성공')
+                  location.href = "/rank";
+               } else {
+                  alert('서버 응답 오류입니다. 새로고침 해주세요.');
+                  }
+            }
+         })
       } else {
          currLessonIndex += 1;
       }
 
       unit.lessonStarted(currLessonIndex - 1); 
    }
-
-   function rankReg() {
-      $.ajax({
-          url:'http://127.0.0.1:5000/rank',
-          type:"POST",
-          contentType: "application/json; charset=UTF-8",
-          dataType:"json",
-          data: JSON.stringify({
-            'user_idx': 1,
-            'hint_cnt': 0,
-            'clear_time': 123,
-        }),
-          complete: function(res) {
-              if (res.responseText === 'success') {
-                  console.log('랭킹 불러오기 성공')
-                  location.href = "/rank";
-              } else {
-                  alert('서버 응답 오류입니다. 새로고침 해주세요.');
-              }
-          }
-      })
-  }
 
    that.getNumLessons = function() {
       var unit = getCurrUnitIndex();
