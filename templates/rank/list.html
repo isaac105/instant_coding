@@ -46,15 +46,15 @@
             <nav aria-label="Page navigation">
                 <ul class="pagination justify-content-end">
                     <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
+                        <a class="page-link {% if rank_list.page == 1 %}disabled{% endif %}" href="?page={{ rank_list.page - 1 }}" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    {% for page_num in rank_list.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+                        <li class="page-item"><a class="page-link" href="?page={{ page_num }}">{{ page_num }}</a></li>
+                    {% endfor %}
                     <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
+                        <a class="page-link {% if rank_list.page == rank_list.pages %}disabled{% endif %}" href="?page={{ rank_list.page + 1 }}" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     </li>
@@ -66,22 +66,3 @@
     </div>
 </body>
 </html>
-<script>
-    function rankList() {
-        $.ajax({
-            url:'/rank',
-            type:"POST",
-            contentType: "application/json; charset=UTF-8",
-            dataType:"json",
-            complete: function(res) {
-                if (res.responseText === 'success') {
-                    console.log('랭킹 불러오기 성공')
-                    location.href = "/rank";
-                } else {
-                    alert('서버 응답 오류입니다. 새로고침 해주세요.');
-                }
-            }
-        })
-    }
-    rankList()
-</script>
