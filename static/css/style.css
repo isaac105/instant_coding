@@ -208,21 +208,21 @@ body {
 .commLink {
 font-size:30px;
    color:'blue'
-   text-decoration:none;
+   /* text-decoration:none; */
 }
 
-.commLink : hover {
+.commLink:hover {
    color:darkblue;
 }
 
 #userProgramLink{
    font-size:40px;
-   color:'blue'
-   text-decoration:none;
+   color:'blue';
+   text-decoration: none;
 }
 
-#userProgramLink : hover{
-   color:'darkblue'
+#userProgramLink:hover{
+   color:'darkblue';
 }
 
 .commLinkDiv {
