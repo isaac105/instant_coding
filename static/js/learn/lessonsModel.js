@@ -97,7 +97,7 @@ function BasicIdeLesson(world, starterCode, unitTests, goalImages, finishedCallb
    ideSettings.world = world;
    ideSettings.readOnly = true;
    that.ide = KarelIdeElement(dim, 'centerAreaDiv', ideSettings);
-   var runButton = TextButton(runDim, 'Run', 'centerAreaDiv', function() {
+   var runButton = TextButton(runDim, '실행', 'centerAreaDiv', function() {
       that.ide.getIde().playButton(runUnitTests);
    });
    runButton.setHeightFraction(0.60);
@@ -115,7 +115,8 @@ function BasicIdeLesson(world, starterCode, unitTests, goalImages, finishedCallb
       height:GOAL_TEXT_HEIGHT,
       width:GOAL_TEXT_WIDTH
    }
-   var goalText = TextElement(goalTextDim, 'Goal: ', 'centerAreaDiv');
+   var goalText = TextElement(goalTextDim, '목표 : ', 'centerAreaDiv');
+   console.log('goalText', goalText)
    that.elements.push(goalText);
    that.goalElements = [];
    for (input in goalImages) {
@@ -130,10 +131,13 @@ function BasicIdeLesson(world, starterCode, unitTests, goalImages, finishedCallb
       var start = input;
       var goal = goalImages[input];
       var goal = UnitTestElement(goalDim, start, goal, 'centerAreaDiv');
+      console.log('that.elements',that.elements)
       that.elements.push(goal);
       that.goalElements.push(goal);
       i++;
    }
+   goalText = ''
+   console.log('that.elements',that.elements[0].div)
 
    function runUnitTests() {
       var initialList = [];
@@ -299,6 +303,7 @@ function Unit3Lesson4(finishedCallback) {
    var goalImages = {
       'static/images/goals/start2.PNG' : 'static/images/goals/goal2.PNG',
    };
+   console.log('finishedCallback', finishedCallback)
    var that = BasicIdeLesson(world, starterCode, unitTests, goalImages, finishedCallback);
    return that;  
 }
