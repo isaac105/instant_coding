@@ -51,34 +51,43 @@
     .custom_button:hover {
         background-color: #172245;
     }
+
+    .card{
+      margin-top: 50px;
+      width: 40%;
+      left: 30%;
+  }
   </style>
 </head>
 
-<body class="text-center m-auto row-cols-1 text-light">
+<body>
   <div class="container mx-auto main-background">
     {% include './common/nav.html' %}
-    <main class=" m-auto row-cols-1">
-      <form>
+    <div class="card input-form-background text-center p-5">
+      <form class="row-cols-md-1">
         <h1 class="h3 mb-3 fw-normal">로그인</h1>
-
-        <div class="form-floating">
-          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-          <label for="floatingInput" class="text-dark">이메일 주소</label>
+  
+        <div class="col-md-auto">
+          <label for="email" class="form-label mt-4">이메일 주소</label>
+          <input type="email" class="form-control" id="email" placeholder="name@example.com">
         </div>
-        <div class="form-floating">
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-          <label for="floatingPassword" class="text-dark">비밀번호</label>
+        <div class="col-md-auto">
+          <label for="pwd" class="form-label mt-4">비밀번호</label>
+          <input type="password" class="form-control" id="pwd" placeholder="Password">
         </div>
-
-        <div class="checkbox mb-3 p-2">
-          <label>
-            <input type="checkbox" value="remember-me"> 계정 기억하기
-          </label>
+  
+        <div class="col-md-auto">
+          <div class="checkbox p-2">
+            <label class="form-label mt-4">
+              <input type="checkbox" value="remember-me"> 계정 기억하기
+            </label>
+          </div>
         </div>
+        
         <input type="button" class="w-100 btn btn-lg btn-primary custom_button" id="btn_login" value="접속하기" onclick="login_button()">
-        <p class="mt-5 mb-3 text-muted">&copy;2022 즉석코딩</p>
       </form>
-    </main>
+    </div>
+    {% include './common/footer.html' %}
   </div>
 </body>
 </html>
