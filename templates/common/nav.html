@@ -9,19 +9,19 @@
   <!-- 메뉴 리스트 -->
   <div class="col-md-8">
     <ul class="nav col-4 col-md-auto mb-2 justify-content-start mb-md-0">
-      <li><a href="/" class="nav-link px-1 fs-4 link-secondary text-white">홈</a></li>
+      <li><a href="/" class="nav-link title px-1 fs-4 link-secondary text-white">홈</a></li>
       <li>&nbsp;</li>
       <li>&nbsp;</li>
       <li>&nbsp;</li>
       <li>&nbsp;</li>
-      <li><a href="./rank" class="nav-link px-1 fs-4 link-secondary text-white">랭킹</a></li>
+      <li><a href="./rank" class="nav-link title px-1 fs-4 link-secondary text-white">랭킹</a></li>
     </ul>
   </div>
 
   <div class="col-md-3 text-end">
   <!-- 로그인항목 -->
     {% if is_logined %}
-      {{ name }}
+    <button type="button" class="btn btn-light me-2" >{{ name }} 님</button>
       <button type="button" class="btn btn-outline-light me-2" onclick="location.href='./signout'">로그아웃</button>
     {% else %}
       <button type="button" class="btn btn-outline-light me-2" onclick="location.href='./signin'">로그인</button>
