@@ -1,4 +1,4 @@
-function KarelLearnEngine() {
+function KarelLearnEngine(type) {
 
    var that = {};
 
@@ -16,8 +16,11 @@ function KarelLearnEngine() {
    that.centerArea = CenterArea();
    that.progressBar = ProgressBar(that);
 
-   that.onWindowResize = function() {
-      resize();
+   console.log('type : ', type)
+   if(type !== 'pass'){
+      that.onWindowResize = function() {
+         resize();
+      }
    }
 
    that.progressModelStatus = progressModel
@@ -88,6 +91,9 @@ function KarelLearnEngine() {
    }
 
    
-   init();
+   if(type !== 'pass'){
+      init();
+   }
+
    return that;
 }

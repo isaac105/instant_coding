@@ -67,14 +67,9 @@
       init();
 
       $('#hint').click(function (){
-         console.log('hint')
-
-         learnEngine = KarelLearnEngine();
+         learnEngine = KarelLearnEngine('pass');
          stepIndex = learnEngine.progressModelStatus.getUnitIndex();
          levelIndex = learnEngine.progressModelStatus.getLessonIndex();
- 
-         console.log('stepIndex', stepIndex)
-         console.log('levelIndex',levelIndex)
          
          $('.img-fluid').remove()
          $('div#hintInfo').append('<img src="../static/images/hint/hint_' + stepIndex + '-' + levelIndex + '.png" class="img-fluid">')
