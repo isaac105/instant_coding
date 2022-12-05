@@ -22,72 +22,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- 1위 -->
+                    <!-- 이쪽에서 pyscript 이용하는게 좋아보일듯?-->
                     <tr>
                         <th scope="row">1</th>
-                        <th>이름</th>
-                        <th>점수</th>
-                        <th>날짜</th>
-                    </tr>
-                    <!-- 2위 -->
-                    <tr>
-                        <th scope="row">2</th>
-                        <th>이름</th>z
-                        <th>점수</th>
-                        <th>날짜</th>
-                    </tr>
-                    <!-- 3위 -->
-                    <tr>
-                        <th scope="row">3</th>
-                        <th>이름</th>
-                        <th>점수</th>
-                        <th>날짜</th>
-                    </tr>
-                    <!-- 4위 -->
-                    <tr>
-                        <th scope="row">4</th>
-                        <th>이름</th>
-                        <th>점수</th>
-                        <th>날짜</th>
-                    </tr>
-                    <!-- 5위 -->
-                    <tr>
-                        <th scope="row">5</th>
-                        <th>이름</th>
-                        <th>점수</th>
-                        <th>날짜</th>
-                    </tr>
-                    <!-- 6위 -->
-                    <tr>
-                        <th scope="row">6</th>
-                        <th>이름</th>
-                        <th>점수</th>
-                        <th>날짜</th>
-                    </tr>
-                    <!-- 7위 -->
-                    <tr>
-                        <th scope="row">7</th>
-                        <th>이름</th>
-                        <th>점수</th>
-                        <th>날짜</th>
-                    </tr>
-                    <!-- 8위 -->
-                    <tr>
-                        <th scope="row">8</th>
-                        <th>이름</th>
-                        <th>점수</th>
-                        <th>날짜</th>
-                    </tr>
-                    <!-- 9위 -->
-                    <tr>
-                        <th scope="row">9</th>
-                        <th>이름</th>
-                        <th>점수</th>
-                        <th>날짜</th>
-                    </tr>
-                    <!-- 10위 -->
-                    <tr>
-                        <th scope="row">10</th>
                         <th>이름</th>
                         <th>점수</th>
                         <th>날짜</th>
@@ -98,5 +35,23 @@
         {% include './common/footer.html' %}
     </div>
 </body>
-
 </html>
+<script>
+    function rankList() {
+        $.ajax({
+            url:'/rank',
+            type:"POST",
+            contentType: "application/json; charset=UTF-8",
+            dataType:"json",
+            complete: function(res) {
+                if (res.responseText === 'success') {
+                    console.log('랭킹 불러오기 성공')
+                    location.href = "/rank";
+                } else {
+                    alert('서버 응답 오류입니다. 새로고침 해주세요.');
+                }
+            }
+        })
+    }
+    rankList()
+</script>
