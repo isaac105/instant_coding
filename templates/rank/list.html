@@ -23,18 +23,22 @@
                         <tr>
                             <th scope="col">순위</th>
                             <th scope="col">이름</th>
-                            <th scope="col">점수</th>
+                            <th scope="col">힌트사용</th>
+                            <th scope="col">클리어시간</th>
                             <th scope="col">날짜</th>
                         </tr>
                     </thead>
                     <tbody>
                     <!-- 이쪽에서 pyscript 이용하는게 좋아보일듯?-->
-                    <tr>
-                        <th scope="row">1</th>
-                        <th>이름</th>
-                        <th>점수</th>
-                        <th>날짜</th>
-                    </tr>
+                    {% for i in rank_list %}
+                        <tr>
+                            <th scope="row">{{ loop.index }}</th>
+                            <th>{{ i.name }}</th>
+                            <th>{{ i[0].hint_cnt }}</th>
+                            <th>{{ i[0].clear_time }}</th>
+                            <th>{{ i[0].reg_date.strftime('%Y-%m-%d %H:%M:%S') }}</th>
+                        </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>

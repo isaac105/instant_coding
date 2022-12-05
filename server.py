@@ -77,7 +77,7 @@ def create_ranking():
 # ------------------- Ranking R: 랭킹정보 조회 -------------------
 @application.route('/rank', methods=['GET'])
 def ranking_template():
-    return render_template_with_userinfo("/rank/list.html")
+    return render_template_with_userinfo("/rank/list.html", rank_list=controllers.ranking_list())
 
 
 @application.route("/")
@@ -89,9 +89,11 @@ def index():
 def lessonsStart():
     return render_template_with_userinfo("/lessons.html")
 
+
 @application.route("/gameStart")
 def gameStart():
     return render_template_with_userinfo("/gameStart.html")
+
 
 @application.route("/lessons.html")
 def lessons():

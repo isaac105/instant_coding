@@ -130,4 +130,6 @@ def register_ranking():
 
 
 def ranking_list():
-    return Ranking.query.order_by(Ranking.hint_cnt.desc(), Ranking.clear_time.desc()).all()
+    return Ranking.query.join(Users, Ranking.user_idx == Users.idx) \
+        .add_columns(Users.name, Users.email)\
+        .order_by(Ranking.hint_cnt.asc(), Ranking.clear_time.asc()).all()
