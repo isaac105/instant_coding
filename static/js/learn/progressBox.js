@@ -61,7 +61,7 @@ function ProgressBox(engine, index, status, toolTip) {
    }
 
    function onMouseUp() {
-      div.style.background = 'blue';
+      div.style.background = '#ef4136';
    }
 
    function onMouseDown() {
@@ -69,7 +69,7 @@ function ProgressBox(engine, index, status, toolTip) {
    }
 
    function onMouseOver() {
-      div.style.background = 'blue';
+      div.style.background = '#ef4136';
    }
 
    function onMouseOut() {
@@ -82,7 +82,7 @@ function ProgressBox(engine, index, status, toolTip) {
       } else if (status == 'notStarted' || status == 'none') {
          div.style.background = 'grey';
       } else if (status == 'finished') {
-         div.style.background = 'green';
+         div.style.background = '#cdecef';
       } else if (status == 'started') {
          div.style.background = 'lightblue';
       } else {
