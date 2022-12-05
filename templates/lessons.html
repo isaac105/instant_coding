@@ -22,6 +22,7 @@
             </div>
 
          </div>
+         
          <div id ='progressBarDiv' style="margin-top: -68.3%;"></div>
       </div>
       <!-- Modal -->
@@ -44,13 +45,18 @@
    <script>
       var stepIndex = ''
       var levelIndex = ''
-      
+      var userIdx = 0
+      var hintCnt = 0
+      const startTime = new Date()
+
+      console.log('시작시간 : ', startTime)
+
       function init() {
          var learnEngine = null;
          
          window.onload = function() {
             initTabs();
-            learnEngine = KarelLearnEngine();
+            learnEngine = KarelLearnEngine('check', userIdx, hintCnt, startTime);
             window.onhashchange = learnEngine.onHashChange;
             stepIndex = learnEngine.progressModelStatus.getUnitIndex();
             levelIndex = learnEngine.progressModelStatus.getLessonIndex();
@@ -66,8 +72,11 @@
       }
       init();
 
+      
+
       $('#hint').click(function (){
-         learnEngine = KarelLearnEngine('pass');
+         hintCnt += 1
+         learnEngine = KarelLearnEngine('pass',  userIdx, hintCnt, startTime);
          stepIndex = learnEngine.progressModelStatus.getUnitIndex();
          levelIndex = learnEngine.progressModelStatus.getLessonIndex();
          

@@ -36,7 +36,7 @@ function ProgressModel(lessonsModel) {
       if(currUnitIndex !== endUnit && currLessonIndex !== endLesson){
          unit.lessonFinished(currLessonIndex - 1);
       }
-
+      
       // update the lesson / unit values
       if (unit.isLastLesson(currLessonIndex - 1)) {
          currUnitIndex += 1;
@@ -44,15 +44,19 @@ function ProgressModel(lessonsModel) {
          unit = getCurrUnitIndex();
          console.log('last? ', unit)
          
+         userIdx =  window.localStorage.getItem('userIdx')
+         hintCnt =  window.localStorage.getItem('hintCnt')
+         clearTime =  window.localStorage.getItem('clearTime')
+         
          $.ajax({
             url:'/rank',
             type:"POST",
             contentType: "application/json; charset=UTF-8",
             dataType:"json",
             data: JSON.stringify({
-               'user_idx': 5,  // 로그인된 유저 idx 여야만 성공
-               'hint_cnt': 1,
-               'clear_time': 123,
+               'user_idx': userIdx,  // 로그인된 유저 idx 여야만 성공
+               'hint_cnt': hintCnt,
+               'clear_time': clearTime,
             }),
             complete: function(res) {
                if (res.responseText === 'success') {
@@ -90,6 +94,18 @@ function ProgressModel(lessonsModel) {
 
    that.getUnitProgressList = function() {
       return unitProgressList;
+   }
+
+   that.setUserIdx = function(idx){
+      window.localStorage.setItem('userIdx', idx)
+   }
+   
+   that.setHintCnt = function(cnt){
+      window.localStorage.setItem('hintCnt', cnt)
+   }
+
+   that.setClearTime = function(time){
+      window.localStorage.setItem('clearTime', time)
    }
 
    that.setHash = function() {

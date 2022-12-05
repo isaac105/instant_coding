@@ -1,4 +1,4 @@
-function KarelLearnEngine(type) {
+function KarelLearnEngine(type, idx, cnt, time) {
 
    var that = {};
 
@@ -8,9 +8,12 @@ function KarelLearnEngine(type) {
    var slideIndex = 0;
    var content = Content();
 
-   
    var lessonsModel = LessonsModel();
    var progressModel = ProgressModel(lessonsModel);
+   
+   progressModel.setUserIdx(idx)
+   progressModel.setHintCnt(cnt)
+   progressModel.setClearTime(time)
 
    that.header = Header();
    that.centerArea = CenterArea();
@@ -26,6 +29,7 @@ function KarelLearnEngine(type) {
    
    that.onHashChange = function () {
       that.progressModelStatus = ProgressModel(lessonsModel)
+      //progressModel.setClearTime(startTime);
 
       var previousUnit = progressModel.getUnitIndex();
       var previousLesson = progressModel.getLessonIndex();
@@ -51,7 +55,6 @@ function KarelLearnEngine(type) {
          }
          that.header.updateHeader(progressModel);
       }
-     
       that.centerArea.createLesson(progressModel, lessonsModel, lessonFinished);
       progressModel.setHash();
    }
