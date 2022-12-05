@@ -45,13 +45,13 @@ function ProgressModel(lessonsModel) {
          console.log('last? ', unit)
          
          $.ajax({
-            url:'http://127.0.0.1:5000/rank',
+            url:'/rank',
             type:"POST",
             contentType: "application/json; charset=UTF-8",
             dataType:"json",
             data: JSON.stringify({
-               'user_idx': 1,
-               'hint_cnt': 0,
+               'user_idx': 5,  // 로그인된 유저 idx 여야만 성공
+               'hint_cnt': 1,
                'clear_time': 123,
             }),
             complete: function(res) {

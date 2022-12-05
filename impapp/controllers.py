@@ -15,7 +15,7 @@ def token_required(f):
         token = session.get("token")
 
         if not token or not session.get("user_idx"):
-            return standard_response("success", "인증이 필요합니다.")
+            return standard_response("fail", "인증이 필요합니다.")
         try:
             data = jwt.decode(token, current_app.config['SECRET_KEY'], algorithms=["HS256"])
             current_user = Users.query.filter_by(idx=data['idx']).first()
