@@ -89,6 +89,9 @@ def index():
 def lessonsStart():
     return render_template_with_userinfo("/lessons.html")
 
+@application.route("/gameStart")
+def gameStart():
+    return render_template_with_userinfo("/gameStart.html")
 
 @application.route("/lessons.html")
 def lessons():
