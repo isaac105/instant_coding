@@ -570,6 +570,7 @@ margin-right:5px;
 .centeredText {
     width: auto;
     background: #cdebfc;
+    border-radius: 5px;
     color: #172245;
     text-align:center;
 }
