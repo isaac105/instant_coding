@@ -131,13 +131,11 @@ function BasicIdeLesson(world, starterCode, unitTests, goalImages, finishedCallb
       var start = input;
       var goal = goalImages[input];
       var goal = UnitTestElement(goalDim, start, goal, 'centerAreaDiv');
-      console.log('that.elements',that.elements)
       that.elements.push(goal);
       that.goalElements.push(goal);
       i++;
    }
    goalText = ''
-   console.log('that.elements',that.elements[0].div)
 
    function runUnitTests() {
       var initialList = [];
