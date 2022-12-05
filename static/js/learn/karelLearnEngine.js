@@ -16,7 +16,6 @@ function KarelLearnEngine(type) {
    that.centerArea = CenterArea();
    that.progressBar = ProgressBar(that);
 
-   console.log('type : ', type)
    if(type !== 'pass'){
       that.onWindowResize = function() {
          resize();
