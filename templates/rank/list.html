@@ -15,8 +15,8 @@
 <body class="text-center text-light">
     <div class="container row-cols-1">
         {% include './common/nav.html' %}
-        <div class="col-md-12 row text-center card text-dark">
-            <h2>랭킹 순위표</h2>
+        <div class="col-md-12 row text-center card text-dark p-5">
+            <h1 class="h3 mb-3 fw-normal">랭킹 순위표</h1>
             <div class="col-md-12 row mt-5">
                 <table class="table text-center">
                     <thead>
@@ -32,11 +32,11 @@
                     <!-- 이쪽에서 pyscript 이용하는게 좋아보일듯?-->
                     {% for i in rank_list %}
                         <tr>
-                            <th scope="row">{{ loop.index }}</th>
-                            <th>{{ i.name }}</th>
-                            <th>{{ i[0].hint_cnt }}</th>
-                            <th>{{ i[0].clear_time }}</th>
-                            <th>{{ i[0].reg_date.strftime('%Y-%m-%d %H:%M:%S') }}</th>
+                            <td scope="row">{{ loop.index }}</td>
+                            <td>{{ i.name }}</td>
+                            <td>{{ i[0].hint_cnt }}</td>
+                            <td>{{ i[0].clear_time }}</td>
+                            <td>{{ i[0].reg_date.strftime('%Y-%m-%d %H:%M:%S') }}</td>
                         </tr>
                     {% endfor %}
                 </tbody>
