@@ -441,6 +441,7 @@ function ButtonLesson(buttonMap, world, solution, finishedCallback) {
    actionMap.pickBeeper = AddEqualCheck(ide, staticKarel.getIde(), ide.stepPickBeeper, finishedCallback);
    
    var textMap = {};
+   //명령어 수정 부분
    textMap.move = '<b>move();</b>';
    textMap.turnLeft = '<b>turnLeft();</b>';
    textMap.putBeeper = '<b>putBeeper();</b>';
