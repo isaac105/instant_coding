@@ -116,7 +116,6 @@ function BasicIdeLesson(world, starterCode, unitTests, goalImages, finishedCallb
       width:GOAL_TEXT_WIDTH
    }
    var goalText = TextElement(goalTextDim, '목표 : ', 'centerAreaDiv');
-   console.log('goalText', goalText)
    that.elements.push(goalText);
    that.goalElements = [];
    for (input in goalImages) {
