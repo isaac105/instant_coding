@@ -63,6 +63,7 @@ function ProgressModel(lessonsModel) {
                'clear_time': clearTime,
             }),
             complete: function(res) {
+               console.log('res : ', res)
                if (res.responseText === 'success') {
                   alert('랭킹 등록 성공')
                   location.href = "/rank";
