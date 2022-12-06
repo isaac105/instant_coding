@@ -55,6 +55,10 @@ function ProgressModel(lessonsModel) {
          console.log('clearTime : ', clearTime)
 
          if(currUnitIndex === lastRound){
+            let endDate = new Date()
+            let timeLeft  = parseInt(Math.round((endDate.getTime() - clearTime) / 1000));
+            console.log('끝난시간 : ', endDate)
+            console.log('소요시간 : ', timeLeft)
             $.ajax({
                url:'/rank',
                type:"POST",
@@ -63,7 +67,7 @@ function ProgressModel(lessonsModel) {
                data: JSON.stringify({
                   'user_idx': userIdx,  // 로그인된 유저 idx 여야만 성공
                   'hint_cnt': hintCnt,
-                  'clear_time': clearTime,
+                  'clear_time': timeLeft,
                }),
                complete: function(res) {
                   console.log('res : ', res)
@@ -114,7 +118,7 @@ function ProgressModel(lessonsModel) {
    }
 
    that.setClearTime = function(time){
-      window.localStorage.setItem('clearTime', time)
+      window.localStorage.setItem('clearTime', time.getTime())
    }
 
    that.setHash = function() {
