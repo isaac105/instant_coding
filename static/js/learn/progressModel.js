@@ -52,26 +52,28 @@ function ProgressModel(lessonsModel) {
          console.log('hintCnt : ', hintCnt)
          console.log('clearTime : ', clearTime)
 
-         $.ajax({
-            url:'/rank',
-            type:"POST",
-            contentType: "application/json; charset=UTF-8",
-            dataType:"json",
-            data: JSON.stringify({
-               'user_idx': userIdx,  // 로그인된 유저 idx 여야만 성공
-               'hint_cnt': hintCnt,
-               'clear_time': clearTime,
-            }),
-            complete: function(res) {
-               console.log('res : ', res)
-               if (res.responseText === 'success') {
-                  alert('랭킹 등록 성공')
-                  location.href = "/rank";
-               } else {
-                  alert('서버 응답 오류입니다. 새로고침 해주세요.');
+         if(currUnitIndex === endUnit && currLessonIndex === endLesson){
+            $.ajax({
+               url:'/rank',
+               type:"POST",
+               contentType: "application/json; charset=UTF-8",
+               dataType:"json",
+               data: JSON.stringify({
+                  'user_idx': userIdx,  // 로그인된 유저 idx 여야만 성공
+                  'hint_cnt': hintCnt,
+                  'clear_time': clearTime,
+               }),
+               complete: function(res) {
+                  console.log('res : ', res)
+                  if (res.responseText === 'success') {
+                     alert('랭킹 등록 성공')
+                     location.href = "/rank";
+                  } else {
+                     alert('서버 응답 오류입니다. 새로고침 해주세요.');
+                  }
                }
-            }
-         })
+            })
+         }
       } else {
          currLessonIndex += 1;
       }
