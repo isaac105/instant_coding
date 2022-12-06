@@ -98,7 +98,6 @@ function BasicIdeLesson(world, starterCode, unitTests, goalImages, finishedCallb
    ideSettings.readOnly = true;
    that.ide = KarelIdeElement(dim, 'centerAreaDiv', ideSettings);
    var runButton = TextButton(runDim, '실행', 'centerAreaDiv', function() {
-      console.log('클리어-1')
       that.ide.getIde().playButton(runUnitTests);
    });
    runButton.setHeightFraction(0.60);
@@ -218,7 +217,6 @@ function BasicIdeDemo(soln, world, starterCode, editable, finishedCallback) {
    that.ide = KarelIdeElement(dim, 'centerAreaDiv', ideSettings);
    var runButton = TextButton(runDim, '실행', 'centerAreaDiv', function() {
       that.ide.getIde().playButton(function() {
-         console.log('클리어-2')
          finishedCallback();
       });
    });

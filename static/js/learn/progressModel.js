@@ -44,21 +44,14 @@ function ProgressModel(lessonsModel) {
          currUnitIndex += 1;
          currLessonIndex = 1;
          unit = getCurrUnitIndex();
-         console.log('last? ', unit)
          
          userIdx =  window.localStorage.getItem('userIdx')
          hintCnt =  window.localStorage.getItem('hintCnt')
          clearTime =  window.localStorage.getItem('clearTime')
-         
-         console.log('userIdx : ', userIdx)
-         console.log('hintCnt : ', hintCnt)
-         console.log('clearTime : ', clearTime)
 
          if(currUnitIndex === lastRound){
             let endDate = new Date()
             let timeLeft  = parseInt(Math.round((endDate.getTime() - clearTime) / 1000));
-            console.log('끝난시간 : ', endDate)
-            console.log('소요시간 : ', timeLeft)
             $.ajax({
                url:'/rank',
                type:"POST",
@@ -70,7 +63,6 @@ function ProgressModel(lessonsModel) {
                   'clear_time': timeLeft,
                }),
                complete: function(res) {
-                  console.log('res : ', res)
                   if (res.responseText === 'success') {
                      alert('랭킹 등록 성공')
                      location.href = "/rank";
