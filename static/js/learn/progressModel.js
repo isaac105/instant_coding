@@ -48,6 +48,10 @@ function ProgressModel(lessonsModel) {
          hintCnt =  window.localStorage.getItem('hintCnt')
          clearTime =  window.localStorage.getItem('clearTime')
          
+         console.log('userIdx : ', userIdx)
+         console.log('hintCnt : ', hintCnt)
+         console.log('clearTime : ', clearTime)
+
          $.ajax({
             url:'/rank',
             type:"POST",
@@ -60,11 +64,11 @@ function ProgressModel(lessonsModel) {
             }),
             complete: function(res) {
                if (res.responseText === 'success') {
-                  console.log('랭킹 불러오기 성공')
+                  alert('랭킹 등록 성공')
                   location.href = "/rank";
                } else {
                   alert('서버 응답 오류입니다. 새로고침 해주세요.');
-                  }
+               }
             }
          })
       } else {
