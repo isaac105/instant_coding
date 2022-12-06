@@ -10,6 +10,7 @@ function ProgressModel(lessonsModel) {
    var hasStarted = false;
    var endUnit = 4;
    var endLesson = 2;
+   var lastRound = 5
 
    that.changeLesson = function(lesson) {
       currLessonIndex = lesson;
@@ -32,6 +33,7 @@ function ProgressModel(lessonsModel) {
    that.finishedLesson = function() {
       var unit = getCurrUnitIndex();
       hasStarted = true;
+      
 
       if(currUnitIndex !== endUnit && currLessonIndex !== endLesson){
          unit.lessonFinished(currLessonIndex - 1);
@@ -52,7 +54,7 @@ function ProgressModel(lessonsModel) {
          console.log('hintCnt : ', hintCnt)
          console.log('clearTime : ', clearTime)
 
-         if(currUnitIndex === endUnit && currLessonIndex === endLesson){
+         if(currUnitIndex === lastRound){
             $.ajax({
                url:'/rank',
                type:"POST",
