@@ -1,14 +1,14 @@
 import json
 import os
 
-from impapp import controllers
-from impapp.models import db
+from imports import controllers
+from imports.models import db
 from flask import Flask, render_template, request, jsonify, session
 from flask_migrate import Migrate
 from flask_session import Session
 
 application = Flask('instant_coding', static_url_path='/static', static_folder='static')
-application.config.from_object('impapp.config.DevelopmentConfig')
+application.config.from_object('imports.config.DevelopmentConfig')
 
 db.init_app(application)
 migrate = Migrate(application, db)
