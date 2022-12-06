@@ -49,11 +49,13 @@
    <script>
       var stepIndex = ''
       var levelIndex = ''
-      var userIdx = 5
+      var userIdx = {{ user_idx }}
       var hintCnt = 0
       const startTime = new Date()
 
       console.log('시작시간 : ', startTime)
+
+      // alert(window.localStorage.getItem('user_idx'));
 
       function init() {
          var learnEngine = null;

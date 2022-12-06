@@ -16,7 +16,7 @@ migrate = Migrate(application, db)
 
 def render_template_with_userinfo(template, **kwargs):
     if session.get('token'):
-        kwargs.update({'is_logined': session['token'], 'name': session['name']})
+        kwargs.update({'is_logined': session['token'], 'name': session['name'], 'user_idx': session['user_idx']})
     return render_template(template, **kwargs)
 
 
