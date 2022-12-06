@@ -125,7 +125,7 @@ def register_ranking():
 
     if session["user_idx"] == data['user_idx']:
         ranking = Ranking()
-        ranking.create(user_idx=data['user_idx'], hint_cnt=data['hint_cnt'], clear_time=data['clear_time'])
+        ranking.create(user_idx=int(data['user_idx']), hint_cnt=int(data['hint_cnt']), clear_time=data['clear_time'])
         return standard_response('success', '랭킹등록 성공')
     else:
         return standard_response('fail', '유저정보가 일치하지 않습니다.')
