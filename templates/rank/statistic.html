@@ -1,5 +1,7 @@
 <!doctype html>
 <html lang="en">
+<link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+<script defer src="https://pyscript.net/alpha/pyscript.js"></script>
 
 <head>
     {% include './common/header.html' %}
@@ -17,7 +19,17 @@
         {% include './common/nav.html' %}
         <div class="col-md-12 row text-center card text-dark p-5">
             <h1 class="h3 mb-3 fw-normal">랭킹 통계</h1>
-            <div class="col-md-12 row mt-5">
+            <py-env>
+                - matplotlib
+            </py-env>
+            <py-script output="plt_image">
+                import matplotlib.pyplot as plt
+                fig = plt.figure()
+
+                plt.scatter({{ return_x }}, {{ return_y }})
+                fig
+            </py-script>
+            <div id="plt_image" class="col-md-12 row mt-5">
         </div>
         </div>
         {% include './common/footer.html' %}

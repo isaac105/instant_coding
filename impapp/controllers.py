@@ -137,4 +137,7 @@ def ranking_list(page):
     return Ranking.query.join(Users, Ranking.user_idx == Users.idx) \
         .add_columns(Users.name, Users.email)\
         .order_by(Ranking.hint_cnt.asc(), Ranking.clear_time.asc(), Ranking.reg_date.asc())\
-        .paginate(page=page, per_page=pagesize)
+        .paginate(page=page, per_page=pagesize) if page else \
+        Ranking.query.join(Users, Ranking.user_idx == Users.idx) \
+        .add_columns(Users.name, Users.email)\
+        .order_by(Ranking.hint_cnt.asc(), Ranking.clear_time.asc(), Ranking.reg_date.asc()).all()

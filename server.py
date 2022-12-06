@@ -81,11 +81,18 @@ def ranking_template():
     page = request.args.get('page', 1, int)
     return render_template_with_userinfo("/rank/list.html", rank_list=controllers.ranking_list(page))
 
-# ------------------- Ranking R: 랭킹통계 조회 -------------------
-@application.route('/rank', methods=['GET'])
+
+@application.route('/rankStat', methods=['GET'])
 def ranking_statistic_template():
-    page = request.args.get('page', 10, int)
-    return render_template_with_userinfo("/rank/statistic.html", rank_list=controllers.ranking_list(page))
+    rank_list = controllers.ranking_list(None)
+    return_x = []
+    return_y = []
+    for r in rank_list:
+        return_x.append(r[0].clear_time)
+        return_y.append(r[0].hint_cnt)
+
+    return render_template_with_userinfo("/rank/statistic.html", return_x=return_x, return_y=return_y)
+
 
 @application.route("/")
 def index():
