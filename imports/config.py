@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from sqlalchemy.pool import NullPool
-
 import json
 import os
+
+from sqlalchemy.pool import NullPool
 
 
 def get_secret():

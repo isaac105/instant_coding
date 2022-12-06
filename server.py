@@ -1,6 +1,3 @@
-import json
-import os
-
 from imports import controllers
 from imports.models import db
 from flask import Flask, render_template, request, jsonify, session
@@ -31,7 +28,6 @@ def favicon():
 
 
 # ------------------- User C: 회원가입 -------------------
-# todo: 회원가입 탬플릿
 @application.route('/signup', methods=['GET'])
 def signup_template():
     return render_template_with_userinfo("/user/signup.html")
