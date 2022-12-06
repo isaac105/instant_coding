@@ -120,6 +120,8 @@ def register_ranking():
     }
     """
     data = request.get_json()
+    
+    print('[info] data : ', data['user_idx'], ' session : ',session["user_idx"])
 
     if session["user_idx"] == data['user_idx']:
         ranking = Ranking()
