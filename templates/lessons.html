@@ -55,6 +55,10 @@
 
       console.log('시작시간 : ', startTime)
 
+      window.localStorage.setItem('user_idx', {{ user_idx }})
+
+      // alert(window.localStorage.getItem('user_idx'));
+
       function init() {
          var learnEngine = null;
 
