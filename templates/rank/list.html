@@ -32,7 +32,7 @@
                     <!-- 이쪽에서 pyscript 이용하는게 좋아보일듯?-->
                     {% for i in rank_list %}
                         <tr>
-                            <td scope="row">{{ loop.index }}</td>
+                            <td scope="row">{{ 10 * (rank_list.page - 1) + loop.index }}</td>
                             <td>{{ i.name }}</td>
                             <td>{{ i[0].hint_cnt }}</td>
                             <td>{{ i[0].clear_time }}</td>
@@ -51,7 +51,11 @@
                         </a>
                     </li>
                     {% for page_num in rank_list.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
-                        <li class="page-item"><a class="page-link" href="?page={{ page_num }}">{{ page_num }}</a></li>
+                        {% if page_num != None %}
+                            <li class="page-item"><a class="page-link" href="?page={{ page_num }}">{{ page_num }}</a></li>
+                        {% else %}
+                            <a class="page-link">...</a>
+                        {% endif %}
                     {% endfor %}
                     <li class="page-item">
                         <a class="page-link {% if rank_list.page == rank_list.pages %}disabled{% endif %}" href="?page={{ rank_list.page + 1 }}" aria-label="Next">
