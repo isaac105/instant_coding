@@ -27,6 +27,7 @@ def favicon():
     return application.send_static_file("images/favicon.ico")
 
 
+# todo: Convert to Flask-Login
 # ------------------- User C: 회원가입 -------------------
 @application.route('/signup', methods=['GET'])
 def signup_template():

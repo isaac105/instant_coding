@@ -2,13 +2,13 @@
 <html>
 
 <head>
-    {% include './common/header.html' %}
     {% if not is_logined %}
         <script>
             alert("로그인 먼저 진행해주세요!");
             window.location.href = "/signin"
         </script>
     {% endif %}
+    {% include './common/header.html' %}
     <script src="{{url_for('static', filename='js/html/websiteImports.js') }}"></script>
     <script>importCss();</script>
     <script>importJs();</script>
