@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  {% include './common/header.html' %}
+  <title>로그인</title>
+  <style>
+    main {
+      width: 330px;
+      height: 100%;
+    }
+
+    main {
+      display: flex;
+      align-items: center;
+
+    }
+
+    .main-background {
+      width: 100%;
+    }
+
+    .form-signin {
+      max-width: 330px;
+      padding: 15px;
+    }
+
+    .form-signin .form-floating:focus-within {
+      z-index: 2;
+    }
+
+    .form-signin input[type="email"] {
+      margin-bottom: -1px;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    .form-signin input[type="password"] {
+      margin-bottom: 10px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+
+    .custom_button {
+        background-color: #204184;
+    }
+
+    .custom_button:hover {
+        background-color: #172245;
+    }
+
+    .card{
+      margin-top: 50px;
+      width: 40%;
+      left: 30%;
+  }
+  </style>
+</head>
+
+<body>
+  <div class="container mx-auto main-background">
+    {% include './common/nav.html' %}
+    <div class="card input-form-background text-center p-5">
+      <form class="row-cols-md-1">
+        <h1 class="h3 mb-3 fw-normal">로그인</h1>
+  
+        <div class="col-md-auto">
+          <label for="email" class="form-label mt-4">이메일 주소</label>
+          <input type="email" class="form-control" id="email" placeholder="name@example.com">
+        </div>
+        <div class="col-md-auto">
+          <label for="pwd" class="form-label mt-4">비밀번호</label>
+          <input type="password" class="form-control" id="pwd" placeholder="Password">
+        </div>
+  
+        <div class="col-md-auto">
+          <div class="checkbox p-2">
+            <label class="form-label mt-4">
+              <input type="checkbox" value="remember-me"> 계정 기억하기
+            </label>
+          </div>
+        </div>
+        
+        <input type="button" class="w-100 btn btn-lg btn-primary custom_button" id="btn_login" value="접속하기" onclick="login_button()">
+      </form>
+    </div>
+    {% include './common/footer.html' %}
+  </div>
+</body>
+</html>
+<script>
+  function login_button() {
+      var email = document.getElementById("email").value;
+      var password = document.getElementById("pwd").value;
+
+      if (email === '' || password === ''){
+          alert("이메일 패스워드를 모두 입력해주세요.");
+      } else {
+          $.ajax({
+              url:'/signin',
+              type:"POST",
+              contentType: "application/json; charset=UTF-8",
+              dataType:"json",
+              data: JSON.stringify({
+                "email": email,
+                "pwd": password
+              }),
+              complete: function(res) {
+                  if (res.responseText === 'success') {
+                      location.href = "/";
+                  } else {
+                      alert('로그인 정보를 다시 확인해주세요.');
+                  }
+              }
+          });
+      }
+  }
+</script>

@@ -1,46 +1,115 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head> 
-   {% include './common/header.html' %}
-   <script src="{{url_for('static', filename='js/html/websiteImports.js') }}"></script>
-	<script>importCss();</script>
-	<script>importJs();</script>
-	<script type="text/javascript">
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-25118186-1']);
-  _gaq.push(['_trackPageview']);
-</script>
-</head> 
+<head>
+    {% if not is_logined %}
+        <script>
+            alert("로그인 먼저 진행해주세요!");
+            window.location.href = "/signin"
+        </script>
+    {% endif %}
+    {% include './common/header.html' %}
+    <script src="{{url_for('static', filename='js/html/websiteImports.js') }}"></script>
+    <script>importCss();</script>
+    <script>importJs();</script>
+</head>
 
-<body> 
-   {% include './common/nav.html' %}
-   <div id ='learnBody'>
-      <div id ='content' class="learn" style="margin-top: 97px">
-         <div id ='headerDiv'></div>
-         <div id ='centerAreaDiv'></div>
-         <div id ='progressBarDiv'></div>
+<body>
+   <div class="container">
+      {% include './common/nav.html' %}
+      <div id='learnBody'>
+         <div id='content' class="learn" style="margin-top: 6%;">
+            <div id='headerDiv'></div>
+            <div id='centerAreaDiv'>
+               <div id="hint" style="float: right;">
+                  <!-- Button trigger modal -->
+                  <button class="hint-btn" type="button" data-bs-toggle="modal" data-bs-target="#hintModal">
+                     <!-- 힌트 -->
+                     <img src="../static/images/source/hint.png">
+                  </button>
+               </div>
+
+            </div>
+
+            <div id='progressBarDiv' style="margin-top: -68.3%;"></div>
+         </div>
+         <!-- Modal -->
+         <div class="modal fade" id="hintModal" tabindex="-1" aria-labelledby="hintModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title" id="hintModalLabel">힌트</h5>
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" id="hintInfo">
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal">닫기</button>
+                  </div>
+               </div>
+            </div>
+         </div>
       </div>
    </div>
+   
    <script>
+      var stepIndex = ''
+      var levelIndex = ''
+      var userIdx = {{ user_idx }}
+      var hintCnt = 0
+      var startTime = new Date()
+      
       function init() {
          var learnEngine = null;
-         
-         window.onload = function() {
-            initTabs();
-            learnEngine = KarelLearnEngine();
-            window.onhashchange = learnEngine.onHashChange;      
-            window.onresize();
-            $("[title]").tooltip({ position: "top center", opacity: 0.9, tipClass: 'topTooltip'});
-         }    
 
-         window.onresize = function(){
-            if(learnEngine)learnEngine.onWindowResize();
+         window.onload = function () {
+            initTabs();
+            learnEngine = KarelLearnEngine('check', userIdx, hintCnt, startTime);
+            window.onhashchange = learnEngine.onHashChange;
+            stepIndex = learnEngine.progressModelStatus.getUnitIndex();
+            levelIndex = learnEngine.progressModelStatus.getLessonIndex();
+
+            window.onresize();
+            $("[title]").tooltip({ position: "top center", opacity: 0.9, tipClass: 'topTooltip' });
+         }
+
+         window.onresize = function () {
+            if (learnEngine) learnEngine.onWindowResize();
             ReferenceDialog.resize();
-         }     
+         }
       }
       init();
+
+
+
+      $('#hint').click(function () {
+         hintCnt += 1
+         learnEngine = KarelLearnEngine('pass', userIdx, hintCnt, startTime);
+         stepIndex = learnEngine.progressModelStatus.getUnitIndex();
+         levelIndex = learnEngine.progressModelStatus.getLessonIndex();
+
+         $('.img-fluid').remove()
+         $('div#hintInfo').append('<img src="../static/images/hint/hint_' + stepIndex + '-' + levelIndex + '.png" class="img-fluid">')
+
+      })
    </script>
 
-</body> 
+</body>
+
 </html>
+<style>
+   .hint-btn {
+      position: relative;
+      z-index: 9999;
+      background-color: transparent;
+      border: none;
+      color: white;
+      padding: 15px 30px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+   }
+</style>

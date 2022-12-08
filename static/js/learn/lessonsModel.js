@@ -40,15 +40,7 @@ LessonsModel.unitNames = [
    'Meet Karel',
    'Commands',
    'Programs',
-   'Functions',
-   'Newspaper',
    'Repeat',
-   'Conditionals',
-   'While',
-   'If',
-   'Color',
-   'Random',
-   'Midpoint',
 ]
 
 function AddEqualCheck(ide1, ide2, action, callback) {
@@ -105,7 +97,7 @@ function BasicIdeLesson(world, starterCode, unitTests, goalImages, finishedCallb
    ideSettings.world = world;
    ideSettings.readOnly = true;
    that.ide = KarelIdeElement(dim, 'centerAreaDiv', ideSettings);
-   var runButton = TextButton(runDim, 'Run', 'centerAreaDiv', function() {
+   var runButton = TextButton(runDim, '실행', 'centerAreaDiv', function() {
       that.ide.getIde().playButton(runUnitTests);
    });
    runButton.setHeightFraction(0.60);
@@ -123,7 +115,7 @@ function BasicIdeLesson(world, starterCode, unitTests, goalImages, finishedCallb
       height:GOAL_TEXT_HEIGHT,
       width:GOAL_TEXT_WIDTH
    }
-   var goalText = TextElement(goalTextDim, 'Goal: ', 'centerAreaDiv');
+   var goalText = TextElement(goalTextDim, '목표 : ', 'centerAreaDiv');
    that.elements.push(goalText);
    that.goalElements = [];
    for (input in goalImages) {
@@ -142,6 +134,7 @@ function BasicIdeLesson(world, starterCode, unitTests, goalImages, finishedCallb
       that.goalElements.push(goal);
       i++;
    }
+   goalText = ''
 
    function runUnitTests() {
       var initialList = [];
@@ -222,9 +215,8 @@ function BasicIdeDemo(soln, world, starterCode, editable, finishedCallback) {
    ideSettings.world = world;
    ideSettings.readOnly = true;
    that.ide = KarelIdeElement(dim, 'centerAreaDiv', ideSettings);
-   var runButton = TextButton(runDim, 'Run', 'centerAreaDiv', function() {
+   var runButton = TextButton(runDim, '실행', 'centerAreaDiv', function() {
       that.ide.getIde().playButton(function() {
-         
          finishedCallback();
       });
    });
@@ -250,200 +242,7 @@ function BasicIdeDemo(soln, world, starterCode, editable, finishedCallback) {
    return that;
 }
 
-function Unit12Lesson1(finishedCallback) {
-   var world = '7x7';
-   var starterCode = 'midpointStarter.js';
-   var unitTests = {
-      '5x5':'5x5MidSoln',
-      '7x7':'7x7MidSoln',
-   };
-   var goalImages = {
-      'static/images/goals/start9.PNG' : 'static/images/goals/goal14.PNG',
-      'static/images/goals/start8.PNG' : 'static/images/goals/goal15.PNG',
-   };
-   var that = BasicIdeLesson(world, starterCode, unitTests, goalImages, finishedCallback);
-   return that; 
-}
-
-function Unit11Lesson2(finishedCallback) {
-   var solution = 'static/karelCode/randomLesson2.js';
-   var world = '9x9';
-   var starterCode = 'randomLesson2.js';
-   var that = BasicIdeDemo(solution, world, starterCode, false, finishedCallback);
-   return that;  
-}
-
-function Unit11Lesson1(finishedCallback) {
-   var solution = 'static/karelCode/randomLesson1.js';
-   var world = '9x9';
-   var starterCode = 'randomLesson1.js';
-   var that = BasicIdeDemo(solution, world, starterCode, false, finishedCallback);
-   return that;  
-}
-
-function Unit10Lesson2(finishedCallback) {
-   var solution = 'static/karelCode/colorLesson2.js';
-   var world = '3x6';
-   var starterCode = 'colorLesson2.js';
-   var that = BasicIdeDemo(solution, world, starterCode, false, finishedCallback);
-   return that; 
-}
-
-function Unit10Lesson1(finishedCallback) {
-   var solution = 'static/karelCode/colorLesson1.js';
-   var world = '2x2';
-   var starterCode = 'colorLesson1.js';
-   var that = BasicIdeDemo(solution, world, starterCode, false, finishedCallback);
-   return that; 
-}
-
-function Unit9Lesson2(finishedCallback) {
-   var world = 'column1';
-   var starterCode = 'columnStarter.js';
-   var unitTests = {
-      'column1':'column1Soln',
-      'column2':'column2Soln',
-   };
-   var goalImages = {
-      'static/images/goals/start16.PNG' : 'static/images/goals/goal16.PNG',
-      'static/images/goals/start17.PNG' : 'static/images/goals/goal17.PNG',
-   };
-   var that = BasicIdeLesson(world, starterCode, unitTests, goalImages, finishedCallback);
-   return that;
-}
-
-function Unit9Lesson1(finishedCallback) {
-   var solution = 'static/karelCode/ifelse.js';
-   var worlds = [
-      'invert',
-   ]
-   var index = Math.floor(Math.random() * worlds.length);
-   var world = worlds[index];
-   var starterCode = 'ifelse.js';
-   var that = BasicIdeDemo(solution, world, starterCode, false, finishedCallback);
-   return that;
-}
-
-function Unit8Lesson5(finishedCallback) {
-   var world = '8x8';
-   var starterCode = 'whileLesson5.js';
-   var unitTests = {
-      '5x5':'5x5FillSoln',
-      '8x8':'8x8FillSoln',
-   };
-   var goalImages = {
-      'static/images/goals/start9.PNG' : 'static/images/goals/goal12.PNG',
-      'static/images/goals/start8.PNG' : 'static/images/goals/goal13.PNG',
-   };
-   var that = BasicIdeLesson(world, starterCode, unitTests, goalImages, finishedCallback);
-   return that; 
-}
-
-function Unit8Lesson4(finishedCallback) {
-   var solution = 'static/karelCode/whileLesson4.js';
-   var worlds = [
-      'clean1',
-   ]
-   var index = Math.floor(Math.random() * worlds.length);
-   var world = worlds[index];
-   var starterCode = 'whileLesson4.js';
-   var that = BasicIdeDemo(solution, world, starterCode, false, finishedCallback);
-   return that; 
-}
-
-function Unit8Lesson3(finishedCallback) {
-   var world = '8x8';
-   var starterCode = 'whileLesson3.js';
-   var unitTests = {
-      '5x5':'5x5BeeperLineSoln',
-      '8x8':'8x8BeeperLineSoln',
-   };
-   var goalImages = {
-      'static/images/goals/start9.PNG' : 'static/images/goals/goal10.PNG',
-      'static/images/goals/start8.PNG' : 'static/images/goals/goal11.PNG',
-   };
-   var that = BasicIdeLesson(world, starterCode, unitTests, goalImages, finishedCallback);
-   return that; 
-}
-
-function Unit8Lesson2(finishedCallback) {
-   var world = '8x8';
-   var starterCode = 'whileLesson2.js';
-   var unitTests = {
-      '5x5':'5x5WallSoln',
-      '8x8':'8x8WallSoln',
-   };
-   var goalImages = {
-      'static/images/goals/start9.PNG' : 'static/images/goals/goal9.PNG',
-      'static/images/goals/start8.PNG' : 'static/images/goals/goal8.PNG',
-   };
-   var that = BasicIdeLesson(world, starterCode, unitTests, goalImages, finishedCallback);
-   return that; 
-}
-
-function Unit8Lesson1(finishedCallback) {
-   var solution = 'static/karelCode/whileLesson1.js';
-   var worlds = [
-      'while1',
-      'while2',
-      'while3'
-   ]
-   var index = Math.floor(Math.random() * worlds.length);
-   var world = worlds[index];
-   var starterCode = 'whileLesson1.js';
-   var that = BasicIdeDemo(solution, world, starterCode, false, finishedCallback);
-   return that; 
-}
-
-function Unit7Lesson3(finishedCallback) {
-   var buttonSrcs = [
-      '/static/images/puzzles/image5.png',
-      '/static/images/puzzles/image6.png',
-      '/static/images/puzzles/image7.png',
-      '/static/images/puzzles/image8.png',
-   ];
-   var labels = [
-      '<code>notFacingSouth()</code>',
-      '<code>frontIsBlocked()</code>',
-      '<code>noBeepersPresent()</code>',
-      '<code>rightIsClear()</code>'
-   ];
-   return PictureLesson(buttonSrcs, labels, finishedCallback, false);
-}
-
-function Unit7Lesson2(finishedCallback) {
-   var buttonSrcs = [
-      '/static/images/puzzles/image1.png',
-      '/static/images/puzzles/image2.png',
-      '/static/images/puzzles/image3.png',
-      '/static/images/puzzles/image4.png',
-   ];
-   var labels = [
-      '<code>frontIsClear()</code>',
-      '<code>notFacingEast()</code>',
-      '<code>leftIsClear()</code>',
-      '<code>beepersPresent()</code>'
-   ];
-   return PictureLesson(buttonSrcs, labels, finishedCallback, false);
-}
-
-function Unit7Lesson1(finishedCallback) {
-   var buttonSrcs = [
-      '/static/images/northIcon.png',
-      '/static/images/southIcon.png',
-      '/static/images/eastIcon.png',
-      '/static/images/westIcon.png',
-   ];
-   var labels = [
-      '<code>facingNorth()</code>',
-      '<code>facingSouth()</code>',
-      '<code>facingEast()</code>',
-      '<code>facingWest()</code>'
-   ];
-   return PictureLesson(buttonSrcs, labels, finishedCallback, false);
-}
-
-function Unit6Lesson2(finishedCallback) {
+function Unit4Lesson2(finishedCallback) {
 
    var world = '3x3';
    var starterCode = 'repeatLesson2.js';
@@ -457,46 +256,12 @@ function Unit6Lesson2(finishedCallback) {
    return that; 
 }
 
-function Unit6Lesson1(finishedCallback) {
+function Unit4Lesson1(finishedCallback) {
    var solution = 'static/karelCode/repeatLesson1.js';
    var world = '3x3';
    var starterCode = 'repeatLesson1.js';
    var that = BasicIdeDemo(solution, world, starterCode, false, finishedCallback);
    return that;  
-}
-
-function Unit5Lesson1(finishedCallback) {
-   var world = 'collectNewspaper';
-   var starterCode = 'newspaperStarter.js';
-   var unitTests = {
-      'collectNewspaper':'collectNewspaperSoln',
-   };
-   var goalImages = {
-      'static/images/goals/start6.PNG' : 'static/images/goals/goal6.PNG',
-   };
-   var that = BasicIdeLesson(world, starterCode, unitTests, goalImages, finishedCallback);
-   return that; 
-}
-
-function Unit4Lesson2(finishedCallback) {
-   var world = '2x2';
-   var starterCode = 'fnsLesson2Starter.js';
-   var unitTests = {
-      '2x2':'turnArounds',
-   };
-   var goalImages = {
-      'static/images/goals/start5.PNG' : 'static/images/goals/goal5.PNG',
-   };
-   var that = BasicIdeLesson(world, starterCode, unitTests, goalImages, finishedCallback);
-   return that;   
-}
-
-function Unit4Lesson1(finishedCallback) {
-   var solution = 'static/karelCode/fnsLesson1Starter.js';
-   var world = 'turnRight';
-   var starterCode = 'fnsLesson1Starter.js';
-   var that = BasicIdeDemo(solution, world, starterCode, false, finishedCallback);
-   return that;   
 }
 
 function Unit3Lesson6(finishedCallback) {
@@ -664,8 +429,8 @@ function ButtonLesson(buttonMap, world, solution, finishedCallback) {
    that.elements = [];
    that.elements.push(staticKarel);
    that.elements.push(dynamicKarel);
-   that.elements.push(TextBox(textDim1, 'Goal'));
-   that.elements.push(TextBox(textDim2, 'World'));
+   that.elements.push(TextBox(textDim1, '목표'));
+   that.elements.push(TextBox(textDim2, '월드'));
    
    var actionMap = {};
    actionMap.move = AddEqualCheck(ide, staticKarel.getIde(), ide.stepMove, finishedCallback);
@@ -674,6 +439,7 @@ function ButtonLesson(buttonMap, world, solution, finishedCallback) {
    actionMap.pickBeeper = AddEqualCheck(ide, staticKarel.getIde(), ide.stepPickBeeper, finishedCallback);
    
    var textMap = {};
+   //명령어 수정 부분
    textMap.move = '<b>move();</b>';
    textMap.turnLeft = '<b>turnLeft();</b>';
    textMap.putBeeper = '<b>putBeeper();</b>';
@@ -869,10 +635,10 @@ function Unit1Lesson2(finishedCallback) {
       '/static/images/wall.png',
    ];
    var labels = [
-      '코딩이',
+      '진실이',
       '보석',
       '월드',
-      '벽'
+      '장애물'
    ];
    return PictureLesson(buttonSrcs, labels, finishedCallback, false);
 }
@@ -885,10 +651,10 @@ function Unit1Lesson1(finishedCallback) {
       '/static/images/wall.png',
    ];
    var labels = [
-      '코딩이',
-      '비퍼',
+      '진실이',
       '보석',
-      '벽'
+      '월드',
+      '장애물'
    ];
    return PictureDemo(buttonSrcs, labels, finishedCallback, true);
 }

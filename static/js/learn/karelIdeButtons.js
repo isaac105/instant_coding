@@ -30,7 +30,7 @@ function KarelIdeButtons(dim, parentId, karelIde) {
       width:BUTTON_WIDTH,
       height:BUTTON_HEIGHT
    };
-   that.runButton = TextButton(runDim, 'Run', 'ideButtonBar', karelIde.playButton);
+   that.runButton = TextButton(runDim, '실행', 'ideButtonBar', karelIde.playButton);
    //that.resetButton = TextButton(resetDim, 'Goal', 'ideButtonBar', karelIde.stopButton);
    that.runButton.inheritVisibility();
    //that.resetButton.inheritVisibility();

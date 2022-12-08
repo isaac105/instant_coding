@@ -22,7 +22,7 @@ function HomeScreen(progressModel, finishedCallback) {
       destinationUrl += progressModel.getHashForLesson(1, 1, 'english');
       window.location = destinationUrl;
    }
-   var text = progressModel.hasStarted() ? 'Continue' : 'Start';
+   var text = progressModel.hasStarted() ? 'Continue' : 'START';
    var continueButton = TextButton(continueDim, text, 'content', continueEvent);
    that.elements.push(continueButton);
 
@@ -43,7 +43,7 @@ function HomeScreen(progressModel, finishedCallback) {
    };
    //var video = VideoElement(videoDim, 'content', 'GQlzz6jGCfI');
    //that.elements.push(video);
-   var image = ImageElement(imageDim, '/static/images/stanford.gif', 'content');
+   var image = ImageElement(imageDim, '/static/images/source/logo_ver2.png', 'content');
    that.elements.push(image);
 
 

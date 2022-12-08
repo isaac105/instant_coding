@@ -1,4 +1,4 @@
-function KarelLearnEngine() {
+function KarelLearnEngine(type, idx, cnt, time) {
 
    var that = {};
 
@@ -8,19 +8,29 @@ function KarelLearnEngine() {
    var slideIndex = 0;
    var content = Content();
 
-   
    var lessonsModel = LessonsModel();
    var progressModel = ProgressModel(lessonsModel);
+   
+   progressModel.setUserIdx(idx)
+   progressModel.setHintCnt(cnt)
+   progressModel.setClearTime(time)
 
    that.header = Header();
    that.centerArea = CenterArea();
    that.progressBar = ProgressBar(that);
 
-   that.onWindowResize = function() {
-      resize();
+   if(type !== 'pass'){
+      that.onWindowResize = function() {
+         resize();
+      }
    }
 
+   that.progressModelStatus = progressModel
+   
    that.onHashChange = function () {
+      that.progressModelStatus = ProgressModel(lessonsModel)
+      //progressModel.setClearTime(startTime);
+
       var previousUnit = progressModel.getUnitIndex();
       var previousLesson = progressModel.getLessonIndex();
       progressModel.loadHash();
@@ -30,14 +40,13 @@ function KarelLearnEngine() {
          render(newUnit != previousUnit);
       }
    }
-
+   
    that.changeLesson = function(lesson) {
       progressModel.changeLesson(lesson);
       that.centerArea.fadeOutElements(finishedChangeAnimation);
    }
 
    function render(newUnit) {
-      //console.log('render');
       if (!progressModel.isAtHomescreen()) {
          if (newUnit) {
             that.progressBar.createLessonIcons(progressModel);
@@ -46,7 +55,6 @@ function KarelLearnEngine() {
          }
          that.header.updateHeader(progressModel);
       }
-     
       that.centerArea.createLesson(progressModel, lessonsModel, lessonFinished);
       progressModel.setHash();
    }
@@ -67,23 +75,27 @@ function KarelLearnEngine() {
 
    function resize() {
       windowWidth = $(window).width(); 
-      windowHeight = $(window).height();
+      windowHeight = $(window).height() - ($(window).height() * 0.1);
 
       content.resize(progressModel);
       that.progressBar.resize(!progressModel.isAtHomescreen());
       that.header.resize(!progressModel.isAtHomescreen());
       var headerHeight = that.header.getHeight();
 
-      var bodyHeight = content.getHeight();
+      var bodyHeight = content.getHeight() - (content.getHeight() * 0.1);
+
       bodyHeight -= that.progressBar.getHeight();
       bodyHeight -= headerHeight;
 
-      that.centerArea.setTop (headerHeight);
+      that.centerArea.setTop (headerHeight + (headerHeight * 0.7));
       that.centerArea.setHeight(bodyHeight);
       that.centerArea.resize();
    }
 
    
-   init();
+   if(type !== 'pass'){
+      init();
+   }
+
    return that;
 }

@@ -8,6 +8,9 @@ function ProgressModel(lessonsModel) {
    var language = 'english';
    var atHomescreen = true;
    var hasStarted = false;
+   var endUnit = 4;
+   var endLesson = 2;
+   var lastRound = 5
 
    that.changeLesson = function(lesson) {
       currLessonIndex = lesson;
@@ -30,13 +33,56 @@ function ProgressModel(lessonsModel) {
    that.finishedLesson = function() {
       var unit = getCurrUnitIndex();
       hasStarted = true;
-      unit.lessonFinished(currLessonIndex - 1);
+      
 
+      console.log('currUnitIndex', currUnitIndex)
+      console.log('currLessonIndex', currLessonIndex)
+      if((currUnitIndex !== endUnit && currLessonIndex !== endLesson) || currUnitIndex !== lastRound){
+         unit.lessonFinished(currLessonIndex - 1);
+      }
+      
       // update the lesson / unit values
       if (unit.isLastLesson(currLessonIndex - 1)) {
          currUnitIndex += 1;
          currLessonIndex = 1;
          unit = getCurrUnitIndex();
+         
+         
+         console.log('final', currUnitIndex)
+         
+         if(currUnitIndex === lastRound){
+            userIdx =  window.localStorage.getItem('userIdx')
+            hintCnt =  window.localStorage.getItem('hintCnt')
+            clearTime =  window.localStorage.getItem('clearTime')
+
+            console.log('userIdx', userIdx)
+            console.log('hintCnt', hintCnt)
+            console.log('clearTime', clearTime)
+
+            let endDate = new Date()
+            let timeLeft  = parseInt(Math.round((endDate.getTime() - clearTime) / 1000));
+            console.log('timeLeft', timeLeft)
+            $.ajax({
+               url:'/rank',
+               type:"POST",
+               contentType: "application/json; charset=UTF-8",
+               dataType:"json",
+               data: JSON.stringify({
+                  'user_idx': userIdx,  // 로그인된 유저 idx 여야만 성공
+                  'hint_cnt': hintCnt,
+                  'clear_time': timeLeft,
+               }),
+               complete: function(res) {
+                  console.log('res : ', res)
+                  if (res.responseText === 'success') {
+                     alert('랭킹 등록 성공')
+                     location.href = "/rank";
+                  } else {
+                     alert('서버 응답 오류입니다. 새로고침 해주세요.');
+                  }
+               }
+            })
+         }
       } else {
          currLessonIndex += 1;
       }
@@ -64,6 +110,18 @@ function ProgressModel(lessonsModel) {
 
    that.getUnitProgressList = function() {
       return unitProgressList;
+   }
+
+   that.setUserIdx = function(idx){
+      window.localStorage.setItem('userIdx', idx)
+   }
+   
+   that.setHintCnt = function(cnt){
+      window.localStorage.setItem('hintCnt', cnt)
+   }
+
+   that.setClearTime = function(time){
+      window.localStorage.setItem('clearTime', time.getTime())
    }
 
    that.setHash = function() {

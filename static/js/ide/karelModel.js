@@ -54,7 +54,8 @@ function KarelModel() {
 			that.karelRow = newRow;
 			that.karelCol = newCol;
 		} else {
-		   error('Front Is Blocked');
+		   // error('앞이 가로막혀 진행할 수 없습니다.');
+		   error('목표(goal)에 도달할 수 없습니다. 문제를 다시풀어보세요.');
 		}
    }
 

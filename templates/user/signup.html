@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    {% include './common/header.html' %}
+    <title>회원가입</title>
+    <style>
+        .custom_button {
+            background-color: #204184;
+        }
+
+        .custom_button:hover {
+            background-color: #172245;
+        }
+        .card{
+            margin-top: 50px;
+            width: 40%;
+            left: 30%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% include './common/nav.html' %}
+        <div class="card input-form-background text-center p-5">
+            <h1 class="h3 mb-3 fw-normal">회원가입</h1>
+            <h5>즉석 코딩에 오신 것을 환영해요!</h5>
+            <form class="row-cols-md-1">
+                <div class="col-md-auto">
+                    <label for="email" class="form-label mt-4">이메일 주소</label>
+                    <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                </div>                    
+                <div class="col-md-auto">
+                    <label for="pwd" class="form-label mt-4">비밀번호</label>
+                    <input type="password" class="form-control" id="pwd" placeholder="비밀번호를 입력해주세요.">
+                </div>
+                <div class="col-md-auto">
+                    <label for="pwd_check" class="form-label mt-4">비밀번호 확인</label>
+                    <input type="password" class="form-control" id="pwd_check" placeholder="비밀번호를 다시 입력해주세요.">
+                </div>
+                <div class="col-md-auto">
+                    <label for="name" class="form-label mt-4">이름</label>
+                    <input type="text" class="form-control" id="name" placeholder="이름을 입력해주세요.">
+                </div>
+                <div class="col-md-auto">
+                    <label for="age" class="form-label mt-4">나이</label>
+                    <input type="text" class="form-control" id="age" placeholder="나이를 입력해주세요.">
+                </div>
+                <div class="col-md-auto mt-4">
+                    <input type="button" class="w-100 btn btn-lg btn-primary custom_button" value="가입하기" onclick="signup_button()">
+                </div>
+            </form>
+        </div>
+        {% include './common/footer.html' %}
+    </div>
+</body>
+</html>
+<script>
+    function signup_button() {
+        var email = document.getElementById("email").value;
+        var pwd = document.getElementById("pwd").value;
+        var pwd_chk = document.getElementById("pwd_check").value;
+        var name = document.getElementById("name").value;
+        var age = document.getElementById("age").value;
+
+        if (pwd !== pwd_chk) {
+            alert('비밀번호화 비밀번호 확인이 일치하지 않습니다.')
+        } else if (email === '' || name === '' || age === '') {
+            alert('정보를 빠짐없이 입력해주세요.')
+        } else {
+            $.ajax({
+                url:'/signup',
+                type:"POST",
+                contentType: "application/json; charset=UTF-8",
+                dataType:"json",
+                data: JSON.stringify({
+                    'email': email,
+                    'pwd': pwd,
+                    'name': name,
+                    'age': age
+                }),
+                complete: function(res) {
+                    if (res.responseText === 'success') {
+                        location.href = "/signin";
+                    } else {
+                        alert('중복되는 이메일입니다.');
+                    }
+                }
+            })
+        }
+    }
+</script>
