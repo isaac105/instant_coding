@@ -35,7 +35,9 @@ function ProgressModel(lessonsModel) {
       hasStarted = true;
       
 
-      if(currUnitIndex !== endUnit && currLessonIndex !== endLesson){
+      console.log('currUnitIndex', currUnitIndex)
+      console.log('currLessonIndex', currLessonIndex)
+      if((currUnitIndex !== endUnit && currLessonIndex !== endLesson) || currUnitIndex !== lastRound){
          unit.lessonFinished(currLessonIndex - 1);
       }
       
@@ -44,21 +46,22 @@ function ProgressModel(lessonsModel) {
          currUnitIndex += 1;
          currLessonIndex = 1;
          unit = getCurrUnitIndex();
-         console.log('last? ', unit)
          
-         userIdx =  window.localStorage.getItem('userIdx')
-         hintCnt =  window.localStorage.getItem('hintCnt')
-         clearTime =  window.localStorage.getItem('clearTime')
          
-         console.log('userIdx : ', userIdx)
-         console.log('hintCnt : ', hintCnt)
-         console.log('clearTime : ', clearTime)
-
+         console.log('final', currUnitIndex)
+         
          if(currUnitIndex === lastRound){
+            userIdx =  window.localStorage.getItem('userIdx')
+            hintCnt =  window.localStorage.getItem('hintCnt')
+            clearTime =  window.localStorage.getItem('clearTime')
+
+            console.log('userIdx', userIdx)
+            console.log('hintCnt', hintCnt)
+            console.log('clearTime', clearTime)
+
             let endDate = new Date()
             let timeLeft  = parseInt(Math.round((endDate.getTime() - clearTime) / 1000));
-            console.log('끝난시간 : ', endDate)
-            console.log('소요시간 : ', timeLeft)
+            console.log('timeLeft', timeLeft)
             $.ajax({
                url:'/rank',
                type:"POST",

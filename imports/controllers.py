@@ -120,12 +120,13 @@ def register_ranking():
     }
     """
     data = request.get_json()
-    
-    print('[info] data : ', data['user_idx'], ' session : ',session["user_idx"])
 
-    if session["user_idx"] == data['user_idx']:
+    user_idx = int(data['user_idx'])
+    hint_cnt = int(data['hint_cnt'])
+
+    if session["user_idx"] == user_idx:
         ranking = Ranking()
-        ranking.create(user_idx=data['user_idx'], hint_cnt=data['hint_cnt'], clear_time=data['clear_time'])
+        ranking.create(user_idx=user_idx, hint_cnt=hint_cnt, clear_time=data['clear_time'])
         return standard_response('success', '랭킹등록 성공')
     else:
         return standard_response('fail', '유저정보가 일치하지 않습니다.')
@@ -135,5 +136,8 @@ def ranking_list(page):
     pagesize = 10
     return Ranking.query.join(Users, Ranking.user_idx == Users.idx) \
         .add_columns(Users.name, Users.email)\
-        .order_by(Ranking.hint_cnt.asc(), Ranking.clear_time.asc())\
-        .paginate(page=page, per_page=pagesize)
+        .order_by(Ranking.hint_cnt.asc(), Ranking.clear_time.asc(), Ranking.reg_date.asc())\
+        .paginate(page=page, per_page=pagesize) if page else \
+        Ranking.query.join(Users, Ranking.user_idx == Users.idx) \
+        .add_columns(Users.name, Users.email)\
+        .order_by(Ranking.hint_cnt.asc(), Ranking.clear_time.asc(), Ranking.reg_date.asc()).all()
